@@ -9,6 +9,7 @@ public class Main {
         WithNameFilter withNameFilter = new WithNameFilter();
         RemoveEmptyFieldsFilter removeEmptyFieldsFilter = new RemoveEmptyFieldsFilter();
         RemoveDoublePhoneNumbersFilter removeDoublePhoneNumbersFilter = new RemoveDoublePhoneNumbersFilter();
+        RemoveItemsWithoutCategoryFilter removeItemsWithoutCategoryFilter = new RemoveItemsWithoutCategoryFilter();
 
         File file = new File("src/main/resources/result.csv");
         if(file.exists())
@@ -20,6 +21,7 @@ public class Main {
         pipe.addFilter(withNameFilter);
         pipe.addFilter(removeEmptyFieldsFilter);
         pipe.addFilter(removeDoublePhoneNumbersFilter);
+        pipe.addFilter(removeItemsWithoutCategoryFilter);
 
         Scanner scanner = new Scanner(new File("src/main/resources/info.csv"));
 
