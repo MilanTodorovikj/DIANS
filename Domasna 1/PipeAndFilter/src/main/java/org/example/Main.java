@@ -11,7 +11,8 @@ public class Main {
         RemoveDoublePhoneNumbersFilter removeDoublePhoneNumbersFilter = new RemoveDoublePhoneNumbersFilter();
 
         File file = new File("src/main/resources/result.csv");
-        file.delete();
+        if(file.exists())
+            file.delete();
 
         File resultFile = new File("src/main/resources/result.csv");
         PrintWriter filePrintWriter = new PrintWriter(resultFile);
