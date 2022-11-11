@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bcb5ac44-6c90-4502-a43c-dcc28102b264" name="Changes" comment="initial">
-      <change beforePath="$PROJECT_DIR$/Domasna 1/PipeAndFilter/src/main/resources/result.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domasna 1/PipeAndFilter/target/classes/org/example/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/Domasna 1/PipeAndFilter/target/classes/org/example/Main.class" afterDir="false" />
-    </list>
+    <list default="true" id="bcb5ac44-6c90-4502-a43c-dcc28102b264" name="Changes" comment="initial" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,9 +38,8 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Petar/Desktop/Dians/Proekt/DIANS/Domasna 1/PipeAndFilter/pom.xml"
+    "last_opened_file_path": "C:/Users/Petar/Desktop/DIANS/Domasna 1/PipeAndFilter/pom.xml"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
