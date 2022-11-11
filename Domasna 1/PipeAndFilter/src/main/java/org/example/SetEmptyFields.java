@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class SetEmptyFields {
     public void execute() throws IOException {
-        Scanner scanner = new Scanner(new File("src/main/resources/result.csv"));
+        Scanner scanner = new Scanner(new File("src/main/resources/resultDraft.csv"));
         scanner.nextLine();
 
         List<Main.Building> buildings = new ArrayList<>();
@@ -25,7 +25,7 @@ public class SetEmptyFields {
             }
         }
 
-        BufferedReader s = new BufferedReader(new FileReader(new File("src/main/resources/convert.csv")));
+        BufferedReader s = new BufferedReader(new FileReader(new File("src/main/resources/info2.csv")));
         String line;
         while ((line = s.readLine())!=null) {
             String[] parts = line.split(",");

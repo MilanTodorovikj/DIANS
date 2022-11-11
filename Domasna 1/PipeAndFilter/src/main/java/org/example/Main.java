@@ -12,11 +12,11 @@ public class Main {
         RemoveDoublePhoneNumbersFilter removeDoublePhoneNumbersFilter = new RemoveDoublePhoneNumbersFilter();
         RemoveItemsWithoutCategoryFilter removeItemsWithoutCategoryFilter = new RemoveItemsWithoutCategoryFilter();
 
-        File file = new File("src/main/resources/result.csv");
+        File file = new File("src/main/resources/resultDraft.csv");
         if (file.exists())
             file.delete();
 
-        File resultFile = new File("src/main/resources/result.csv");
+        File resultFile = new File("src/main/resources/resultDraft.csv");
         PrintWriter filePrintWriter = new PrintWriter(resultFile);
 
         pipe.addFilter(withNameFilter);
@@ -24,7 +24,7 @@ public class Main {
         pipe.addFilter(removeDoublePhoneNumbersFilter);
         pipe.addFilter(removeItemsWithoutCategoryFilter);
 
-        Scanner scanner = new Scanner(new File("src/main/resources/info.csv"));
+        Scanner scanner = new Scanner(new File("src/main/resources/info1.csv"));
 
         scanner.useDelimiter(",");
 
