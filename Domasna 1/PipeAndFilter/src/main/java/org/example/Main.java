@@ -1,11 +1,8 @@
 package org.example;
 
-
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
+
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -16,7 +13,7 @@ public class Main {
         RemoveItemsWithoutCategoryFilter removeItemsWithoutCategoryFilter = new RemoveItemsWithoutCategoryFilter();
 
         File file = new File("src/main/resources/result.csv");
-        if(file.exists())
+        if (file.exists())
             file.delete();
 
         File resultFile = new File("src/main/resources/result.csv");
@@ -31,9 +28,9 @@ public class Main {
 
         scanner.useDelimiter(",");
 
-        while(scanner.hasNextLine()){
+        while (scanner.hasNextLine()) {
             String line = pipe.runFilter(scanner.nextLine());
-            if(!line.equals(""))
+            if (!line.equals(""))
                 filePrintWriter.println(line);
         }
 
