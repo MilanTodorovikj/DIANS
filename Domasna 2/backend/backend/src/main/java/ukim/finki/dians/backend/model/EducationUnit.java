@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
 @Entity
 public class EducationUnit {
     @Id
@@ -25,6 +24,10 @@ public class EducationUnit {
 
     @OneToMany
     private List<Review> reviews;
+
+    public EducationUnit() {
+        reviews = new ArrayList<>();
+    }
 
     public EducationUnit(String name, String city, String street, String type, String phone, String website, Double lat, Double lon) {
         this.name = name;
