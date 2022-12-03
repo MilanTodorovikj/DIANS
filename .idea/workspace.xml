@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bcb5ac44-6c90-4502-a43c-dcc28102b264" name="Changes" comment="initial" />
+    <list default="true" id="bcb5ac44-6c90-4502-a43c-dcc28102b264" name="Changes" comment="initial">
+      <change beforePath="$PROJECT_DIR$/.idea/DIANS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DIANS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domasna 1/PipeAndFilter/PipeAndFilter.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domasna 2/backend/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Domasna 2/backend/backend/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,9 +46,24 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Petar/Desktop/DIANS/Domasna 1/PipeAndFilter/pom.xml"
+    "last_opened_file_path": "C:/Users/Petar/Desktop/DIANS"
   }
 }]]></component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/Domasna 2/frontend/frontend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -53,6 +75,9 @@
       <workItem from="1667750426914" duration="737000" />
       <workItem from="1668103644701" duration="385000" />
       <workItem from="1668108015933" duration="346000" />
+      <workItem from="1670059241615" duration="80000" />
+      <workItem from="1670059334970" duration="605000" />
+      <workItem from="1670060887455" duration="791000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1668108061553</created>
