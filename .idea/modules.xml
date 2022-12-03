@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DIANS.iml" filepath="$PROJECT_DIR$/.idea/DIANS.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Domasna 1/PipeAndFilter/PipeAndFilter.iml" filepath="$PROJECT_DIR$/Domasna 1/PipeAndFilter/PipeAndFilter.iml" />
     </modules>
   </component>
 </project>
