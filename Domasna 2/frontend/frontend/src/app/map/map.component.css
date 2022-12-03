@@ -1,0 +1,19 @@
+.map {
+  width: 1500px;
+  height: 1000px;
+  padding: 0;
+}
+
+app-search-bar{
+  position: absolute;
+  top: 30px;
+  left: 35%;
+  z-index: 99999;
+}
+app-all-schools{
+  position: absolute;
+  top: 50px;
+  left: 60px;
+  z-index: 99999;
+}
+
