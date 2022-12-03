@@ -3,6 +3,7 @@ package ukim.finki.dians.backend.service.impl;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import ukim.finki.dians.backend.model.EducationUnit;
+import ukim.finki.dians.backend.model.Review;
 import ukim.finki.dians.backend.model.exceptions.EducationUnitNotFound;
 import ukim.finki.dians.backend.model.filters.EducationUnitFilter;
 import ukim.finki.dians.backend.repository.EducationUnitRepository;
@@ -60,5 +61,13 @@ public class EducationUnitServiceImpl implements EducationUnitService {
     @Override
     public List<EducationUnit> filter(EducationUnitFilter educationUnitFilter) {
         return this.educationUnitRepository.filter(educationUnitFilter);
+    }
+
+    @Override
+    public List<Review> findAllReviews(Long id) {
+        if(this.educationUnitRepository.findById(id).isEmpty())
+            throw new EducationUnitNotFound(id);
+        EducationUnit educationUnit = this.educationUnitRepository.findById(id).get();
+        return educationUnitRepository.getAllReviews(educationUnit);
     }
 }
