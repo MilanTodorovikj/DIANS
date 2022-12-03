@@ -10,7 +10,7 @@
 
 **Технологии:**
 - Backend (Java with Spring Boot)
-- Frontend (React + Bootstrap + CSS + HTML)
+- Frontend (Angular + Bootstrap + CSS + HTML)
 - Database (PostgreSQL)
 
 **Автори:**
