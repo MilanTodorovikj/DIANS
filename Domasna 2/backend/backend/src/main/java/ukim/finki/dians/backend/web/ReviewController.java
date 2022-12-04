@@ -24,9 +24,4 @@ public class ReviewController {
         return educationUnitService.findAllReviews(id);
     }
 
-    @PostMapping("/addReview/{id}")
-    public Review addReview(@RequestBody Review review,@PathVariable Long id){
-
-        return this.reviewService.save(review,id);
-    }
 }

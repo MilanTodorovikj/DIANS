@@ -1,11 +1,9 @@
 package ukim.finki.dians.backend.service.impl;
 
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import ukim.finki.dians.backend.model.EducationUnit;
 import ukim.finki.dians.backend.model.Review;
 import ukim.finki.dians.backend.model.exceptions.EducationUnitNotFound;
-import ukim.finki.dians.backend.model.filters.EducationUnitFilter;
 import ukim.finki.dians.backend.repository.EducationUnitRepository;
 import ukim.finki.dians.backend.service.EducationUnitService;
 
@@ -35,32 +33,6 @@ public class EducationUnitServiceImpl implements EducationUnitService {
         if(educationUnitRepository.findById(id).isEmpty())
             throw new EducationUnitNotFound(id);
         return educationUnitRepository.findById(id).get();
-    }
-
-    @Override
-    public EducationUnit save(EducationUnit educationUnit) {
-        return this.educationUnitRepository.save(educationUnit);
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        if(educationUnitRepository.findById(id).isEmpty())
-            throw new EducationUnitNotFound(id);
-        this.educationUnitRepository.deleteById(id);
-    }
-
-    @Override
-    @Transactional
-    public EducationUnit editById(Long id,EducationUnit educationUnit) {
-        if(this.educationUnitRepository.findById(id).isEmpty())
-            throw new EducationUnitNotFound(id);
-        this.educationUnitRepository.deleteById(id);
-        return this.educationUnitRepository.save(educationUnit);
-    }
-
-    @Override
-    public List<EducationUnit> filter(EducationUnitFilter educationUnitFilter) {
-        return this.educationUnitRepository.filter(educationUnitFilter);
     }
 
     @Override
