@@ -1,0 +1,13 @@
+.header {
+  color: orange;
+  font-weight: bold;
+  font-family: Calibri;
+}
+
+.container {
+  padding: 5px;
+  margin: 5%;
+  border-radius: 20px;
+  background-color: white;
+  width: 300px;
+}

@@ -1,0 +1,10 @@
+/*.container{*/
+/*  display: flex;*/
+/*}*/
+/*.container-min{*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*}*/
+app-map{
+  position: relative;
+}
