@@ -8,6 +8,7 @@ import ukim.finki.dians.backend.model.EducationUnit;
 import ukim.finki.dians.backend.model.Review;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface EducationUnitRepository extends JpaRepository<EducationUnit,Long> {
@@ -15,4 +16,6 @@ public interface EducationUnitRepository extends JpaRepository<EducationUnit,Lon
     @Query("select eu.reviews from EducationUnit eu where " +
             "eu.id=:#{#educationUnit.id}")
     List<Review> getAllReviews(@Param("educationUnit") EducationUnit educationUnit);
+
+    Optional<EducationUnit> findByName(String name);
 }
