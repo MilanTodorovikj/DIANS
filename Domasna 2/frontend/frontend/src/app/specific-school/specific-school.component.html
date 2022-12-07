@@ -1,0 +1,43 @@
+<!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+<!--&lt;!&ndash;  <h2 class="header">Сите институции за образование</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+<div class="container">
+  <div class="details square">
+
+    <h4 class="modal-title" id="exampleModalLabel"><b>{{item.name}}</b></h4>
+
+    <div class="mb-3">Оцена:</div>
+
+
+    <div class="mb-3">
+      <div *ngIf="item.type"><b>Тип: </b>
+        <span>{{item.type.substring(0, 1).toUpperCase() + item.type.substring(1)}}</span></div>
+    </div>
+    <div class="mb-3">
+      <div *ngIf="item.street"><b>Адреса: </b> <span>{{item.street}}</span></div>
+    </div>
+    <div class="mb-3">
+      <div *ngIf="item.city"><b>Град: </b> <span>{{item.city}}</span></div>
+    </div>
+    <div class="mb-3">
+      <div *ngIf="item.phone"><b>Телефонски број: </b><span>{{item.phone}}</span></div>
+    </div>
+    <div class="mb-3">
+      <div *ngIf="item.website"><b>Вебсајт: </b> <span><a href="{{item.website}}">{{item.website}}</a></span>
+      </div>
+    </div>
+  </div>
+  <div class="comments square">
+
+    <h3><b>Коментари</b></h3>
+
+    <div class="text-center">
+      <a class="btn btn-primary" routerLink="/all">Back</a>
+    </div>
+
+  </div>
+
+
+</div>

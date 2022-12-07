@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {EducationUnitsService} from './educationUnits.service'
 import * as Leaflet from 'leaflet';
 
 @Component({
@@ -7,5 +8,7 @@ import * as Leaflet from 'leaflet';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+
 
 }

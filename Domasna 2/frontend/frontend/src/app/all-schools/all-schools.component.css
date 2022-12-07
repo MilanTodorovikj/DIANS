@@ -1,13 +1,64 @@
 .header {
-  color: orange;
+  color: #4d90fe;
   font-weight: bold;
   font-family: Calibri;
 }
 
-.container {
-  padding: 5px;
-  margin: 5%;
-  border-radius: 20px;
-  background-color: white;
-  width: 300px;
+
+
+.accordion {
+  border-radius: 36px;
+  width: 25rem;
+  background: #f9f9ff;
+}
+
+.accordion-body {
+  height: 43rem;
+}
+
+ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+li {
+  list-style-type: none;
+
+  position: relative;
+  display: block;
+  color: #212529;
+}
+
+a {
+  text-decoration: none;
+}
+
+a a {
+  text-decoration: underline;
+}
+
+.accordion-body {
+  padding: 0rem;
+  max-height: 100%;
+  overflow-y: scroll;
+}
+
+
+.unit:hover {
+  background: #c8e2ff;
+  transition: 0.3s ease-in-out;
+
+}
+
+.unit {
+  background: #fff;
+  transition: 0.3s ease-in-out;
+}
+
+.unittext {
+  padding: 0.25rem 0.5rem;
+}
+
+.unittext strong {
+  color: #1f1f1f;
 }
