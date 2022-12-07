@@ -7,14 +7,16 @@ import {LeafletModule} from "@asymmetrik/ngx-leaflet";
 import {MapComponent} from './map/map.component';
 import {SearchBarComponent} from './search-bar/search-bar.component';
 import {AllSchoolsComponent} from './all-schools/all-schools.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { SpecificSchoolComponent } from './specific-school/specific-school.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
     SearchBarComponent,
-    AllSchoolsComponent
+    AllSchoolsComponent,
+    SpecificSchoolComponent
   ],
   imports: [
     BrowserModule,

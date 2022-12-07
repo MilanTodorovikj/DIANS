@@ -4,12 +4,16 @@
   font-family: Calibri;
 }
 
+.container {
+  position: absolute;
+  top: 50px;
+  left: 60px;
+  z-index: 1000;
+}
+
 .accordion {
-  /*padding: 0.9rem 1rem;*/
   border-radius: 36px;
-  /*height: 47rem;*/
   width: 25rem;
-  /*border: 1px solid #003081;;*/
   background: #f9f9ff;
 }
 
@@ -24,11 +28,9 @@ ul {
 
 li {
   list-style-type: none;
-  /*padding-bottom: 0.5rem;*/
 
   position: relative;
   display: block;
-  /*padding: 0.5rem 1rem;*/
   color: #212529;
 }
 
@@ -48,9 +50,7 @@ a a {
 
 
 .unit:hover {
-  /*opacity: 0.6;*/
   background: #c8e2ff;
-  /*color: #0048ff;*/
   transition: 0.3s ease-in-out;
 
 }

@@ -43,7 +43,8 @@
 
           <ul>
             <li class="items" *ngFor="let item of displayData">
-              <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="setModal(item.id)">
+              <a routerLink="/detail/{{item.id}}"
+                 (click)="setModal(item.id)">
                 <div class="unit">
                   <div class="unittext">
 
