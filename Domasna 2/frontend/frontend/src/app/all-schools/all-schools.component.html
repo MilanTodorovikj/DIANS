@@ -1,3 +1,129 @@
+<!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+<!--&lt;!&ndash;  <h2 class="header">Сите институции за образование</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
 <div class="container">
-  <h3 class="header">Сите институции за образование</h3>
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+          Сите институции за образование
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+           data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <!--          <select name="cars" id="name">-->
+          <!--            <option value="volvo">name</option>-->
+          <!--            <option value="saab">Saab</option>-->
+          <!--            <option value="opel">Opel</option>-->
+          <!--            <option value="audi">Audi</option>-->
+          <!--          </select>-->
+
+          <!--          <select name="cars" id="category">-->
+          <!--            <option value="volvo">category</option>-->
+          <!--            <option value="saab">Saab</option>-->
+          <!--            <option value="opel">Opel</option>-->
+          <!--            <option value="audi">Audi</option>-->
+          <!--          </select>-->
+
+          <!--          <select name="cars" id="city">-->
+          <!--            <option value="volvo">city</option>-->
+          <!--            <option value="saab">Saab</option>-->
+          <!--            <option value="opel">Opel</option>-->
+          <!--            <option value="audi">Audi</option>-->
+          <!--          </select>-->
+          <!--          <select name="cars" id="grade">-->
+          <!--            <option value="volvo">grade</option>-->
+          <!--            <option value="saab">Saab</option>-->
+          <!--            <option value="opel">Opel</option>-->
+          <!--            <option value="audi">Audi</option>-->
+          <!--          </select>-->
+
+          <ul>
+            <li class="items" *ngFor="let item of displayData">
+              <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="setModal(item.id)">
+                <div class="unit">
+                  <div class="unittext">
+
+
+                    <strong>{{item.type.substring(0, 1).toUpperCase() + item.type.substring(1)}}</strong>
+                    -
+                    {{item.name}}, {{item.street}}, {{item.city}}<br/>
+                    {{item.phone}}
+                    <span *ngIf="item.website!=''">  <i *ngIf="item.phone"><br/></i>
+                      <a href="{{item.website}}">{{item.website}}</a>
+                    </span>
+
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <input type="button" class="btn btn-primary loadbtn" (click)="showMore()" value="Load More"/>
+
+
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Детали за <b>{{modal.name}}</b></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <div *ngIf="modal.name">Име: <span>{{modal.name}}</span></div>
+                    </div>
+                    <div class="mb-3">
+                      <div *ngIf="modal.type">Тип:
+                        <span>{{modal.type.substring(0, 1).toUpperCase() + modal.type.substring(1)}}</span></div>
+                    </div>
+                    <div class="mb-3">
+                      <div *ngIf="modal.street">Адреса: <span>{{modal.street}}</span></div>
+                    </div>
+                    <div class="mb-3">
+                      <div *ngIf="modal.city">Град: <span>{{modal.city}}</span></div>
+                    </div>
+                    <div class="mb-3">
+                      <div *ngIf="modal.phone">Телефонски број: <span>{{modal.phone}}</span></div>
+                    </div>
+                    <div class="mb-3">
+                      <div *ngIf="modal.website">Вебсајт: <span><a href="{{modal.website}}">{{modal.website}}</a></span>
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="message-text" class="col-form-label">Коментар:</label>
+                      <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+
+                    <div class="mb-3">Оцена:</div>
+
+                    <div class="mb-3">
+                      <label for="message-text" class="col-form-label">Име:</label>
+                      <input type="text" class="form-control" id="name"/>
+                    </div>
+                    <div class="mb-3">
+                      <label for="message-text" class="col-form-label">E-mail адреса:</label>
+                      <input type="text" class="form-control" id="email"/>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Send message</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>

@@ -1,17 +1,41 @@
+
 input {
   border: none;
-  padding: 10px;
+  padding: 0.5rem 0.7rem;
   margin: 10px;
-  height: 20px;
-  width: 500px;
-  outline: none;
+  height: 1.5rem;
+  width: 30rem;
+  outline: 1px solid #253dd5;
   border-radius: 30px;
+  opacity: 0.7;
+  color: #502dbb;
+  /*font-weight: bold;*/
+  padding-left: 2.35rem;
+}
+
+::placeholder {
+  color: #502dbb;
+  /*font-weight: bold;*/
 }
 
 input:hover {
-  border-color: #a0a0a0 #b9b9b9 #b9b9b9 #b9b9b9;
+  opacity: 1;
+  transition: 0.7s ease;
+  height: 2.75rem;
 }
 
 input:focus {
+  opacity: 1;
+  transition: 0.15s ease;
+  box-shadow: 0 0 10px 5px #bebcdc;
   border-color: #4d90fe;
+  height: 2.75rem;
+}
+
+input {
+  transition: 0.5s ease;
+}
+
+i.fa.fa-search {
+  transform: translateX(-29.75rem);
 }

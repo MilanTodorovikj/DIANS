@@ -8,6 +8,7 @@ import ukim.finki.dians.backend.service.impl.FillProperties;
 import java.io.IOException;
 import java.util.List;
 
+@CrossOrigin
 @RestController()
 @RequestMapping("/educationUnit")
 public class EducationUnitController {
