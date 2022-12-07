@@ -12,7 +12,7 @@ export class AllSchoolsComponent implements OnInit {
   title = "GetEducationUnits";
   data = [];
 
-  constructor(private unitService: EducationUnitsService) {
+  constructor(private educationUnitsService: EducationUnitsService) {
   }
 
   units: EducationUnit[] = [];
@@ -27,9 +27,8 @@ export class AllSchoolsComponent implements OnInit {
   modal: any;
 
   ngOnInit(): void {
-    this.unitService.getEducationUnits().subscribe(
+    this.educationUnitsService.getEducationUnits().subscribe(
       (response) => {
-        // console.log(response);
         this.units = response;
         this.displayData = this.units.slice(0, 10);
         this.modal = this.displayData.at(0);
@@ -47,19 +46,16 @@ export class AllSchoolsComponent implements OnInit {
       newLength = this.units.length
     }
     this.displayData = this.units.slice(0, newLength);
-    console.log(this.displayData)
   }
 
   setModal(id: number) {
-    this.unitService.getEducationUnit(id).subscribe(
+    this.educationUnitsService.getEducationUnit(id).subscribe(
       (response) => {
-        this.modal = this.displayData.at(id-1);
+        this.modal = this.displayData.at(id - 1);
       },
       (error) => {
         console.log("Error Occurred: " + error);
       })
-    console.log(id);
-    // this.modal = this.displayData.at(id - 1);
   }
 
 }

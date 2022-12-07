@@ -1,15 +1,52 @@
 .square {
-  border-radius: 36px;
-  width: 25rem;
-  height: 25rem;
+  border-radius: 20px;
+  width: 21rem;
+  height: 21rem;
   background: #f9f9ff;
   padding: 1.25rem;
+  margin: 10px;
+  box-shadow: 4px 3px 8px 1px #969696;
+  -webkit-box-shadow: 4px 3px 8px 1px rgba(7, 3, 3, 0.15);
+  position: absolute;
 }
 
-.comments {
-  margin-top: 1rem;
+.comments{
+  border-radius: 20px;
+  width: 21rem;
+  height: 21rem;
+  background: #f9f9ff;
+  padding: 1.25rem;
+  margin: 10px;
+  box-shadow: 4px 3px 8px 1px #969696;
+  -webkit-box-shadow: 4px 3px 8px 1px rgba(7, 3, 3, 0.15);
+  position: absolute;
+  top: 22rem;
 }
 
 .details div, .comments div {
   font-size: 18px;
 }
+
+.mb-3 {
+  color: #2d7afa;
+  max-width: 15rem !important;
+  overflow-wrap: break-word;
+}
+
+h4 {
+  color: #2d7afa;
+}
+
+a{
+  text-decoration: none;
+  color: white !important;
+  font-weight: normal;
+}
+
+.loadbtn{
+  background-color: #2d7afa;
+  border-color: #2070f6;
+  color: white !important;
+  margin: 0;
+}
+

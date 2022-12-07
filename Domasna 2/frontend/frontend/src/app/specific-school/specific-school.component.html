@@ -1,15 +1,11 @@
-<!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
-<!--&lt;!&ndash;  <h2 class="header">Сите институции за образование</h2>&ndash;&gt;-->
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-
 <div class="container">
   <div class="details square">
 
     <h4 class="modal-title" id="exampleModalLabel"><b>{{item.name}}</b></h4>
 
-    <div class="mb-3">Оцена:</div>
-
+    <div class="mb-3">Оцена:
+      <span *ngFor="let num of numbers">&#9734;</span>
+    </div>
 
     <div class="mb-3">
       <div *ngIf="item.type"><b>Тип: </b>
@@ -25,17 +21,14 @@
       <div *ngIf="item.phone"><b>Телефонски број: </b><span>{{item.phone}}</span></div>
     </div>
     <div class="mb-3">
-      <div *ngIf="item.website"><b>Вебсајт: </b> <span><a href="{{item.website}}">{{item.website}}</a></span>
+      <div *ngIf="item.website"><span class="btn btn-primary loadbtn"><a href="{{item.website}}"><b>Посети вебсајт</b></a></span>
       </div>
     </div>
   </div>
-  <div class="comments square">
+  <div class="comments">
 
-    <h3><b>Коментари</b></h3>
+    <h4><b>Коментари</b></h4>
 
-    <div class="text-center">
-      <a class="btn btn-primary" routerLink="/all">Back</a>
-    </div>
 
   </div>
 
