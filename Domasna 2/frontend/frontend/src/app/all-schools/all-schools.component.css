@@ -4,12 +4,7 @@
   font-family: Calibri;
 }
 
-.container {
-  position: absolute;
-  top: 50px;
-  left: 60px;
-  z-index: 1000;
-}
+
 
 .accordion {
   border-radius: 36px;
@@ -66,9 +61,4 @@ a a {
 
 .unittext strong {
   color: #1f1f1f;
-}
-
-.loadbtn {
-  display: block;
-  margin: 1.25rem auto 1.5rem auto;
 }

@@ -14,7 +14,7 @@ export class SpecificSchoolComponent {
 
   a: number = 1;
 
-  units: any;
+  item: any;
   ngOnInit() {
     // this.unitService.getEducationUnit(this.route.queryParams)
     this.route
@@ -27,7 +27,7 @@ export class SpecificSchoolComponent {
     this.unitService.getEducationUnit(this.a).subscribe(
       (response) => {
         console.log(response)
-        this.units = response;
+        this.item = response;
       }
     )
   }

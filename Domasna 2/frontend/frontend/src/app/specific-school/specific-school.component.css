@@ -1,0 +1,15 @@
+.square {
+  border-radius: 36px;
+  width: 25rem;
+  height: 25rem;
+  background: #f9f9ff;
+  padding: 1.25rem;
+}
+
+.comments {
+  margin-top: 1rem;
+}
+
+.details div, .comments div {
+  font-size: 18px;
+}
