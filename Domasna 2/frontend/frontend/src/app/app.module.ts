@@ -9,7 +9,8 @@ import {SearchBarComponent} from './search-bar/search-bar.component';
 import {AllSchoolsComponent} from './all-schools/all-schools.component';
 import {HttpClientModule} from '@angular/common/http';
 import { SpecificSchoolComponent } from './specific-school/specific-school.component';
-import { ReviewsComponent } from './reviews/reviews.component'
+import { ReviewsComponent } from './reviews/reviews.component';
+import { HomeIconComponent } from './home-icon/home-icon.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReviewsComponent } from './reviews/reviews.component'
     SearchBarComponent,
     AllSchoolsComponent,
     SpecificSchoolComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    HomeIconComponent
   ],
   imports: [
     BrowserModule,
