@@ -18,14 +18,14 @@ export class SpecificSchoolComponent {
     // this.unitService.getEducationUnit(this.route.queryParams)
     this.route
       .params.subscribe(s => {
-        console.log(s["id"]);
+        // console.log(s["id"]);
         this.a = s["id"];
       }
     )
 
     this.unitService.getEducationUnit(this.a).subscribe(
       (response) => {
-        console.log(response)
+        // console.log(response)
         this.item = response;
       }
     )

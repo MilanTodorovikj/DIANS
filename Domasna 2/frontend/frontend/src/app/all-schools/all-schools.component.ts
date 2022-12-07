@@ -57,7 +57,7 @@ export class AllSchoolsComponent implements OnInit {
       (error) => {
         console.log("Error Occurred: " + error);
       })
-    console.log(id);
+    // console.log(id);
     // this.modal = this.displayData.at(id - 1);
   }
 
