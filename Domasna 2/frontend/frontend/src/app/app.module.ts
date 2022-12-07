@@ -8,7 +8,8 @@ import {MapComponent} from './map/map.component';
 import {SearchBarComponent} from './search-bar/search-bar.component';
 import {AllSchoolsComponent} from './all-schools/all-schools.component';
 import {HttpClientModule} from '@angular/common/http';
-import { SpecificSchoolComponent } from './specific-school/specific-school.component'
+import { SpecificSchoolComponent } from './specific-school/specific-school.component';
+import { ReviewsComponent } from './reviews/reviews.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SpecificSchoolComponent } from './specific-school/specific-school.compo
     MapComponent,
     SearchBarComponent,
     AllSchoolsComponent,
-    SpecificSchoolComponent
+    SpecificSchoolComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,

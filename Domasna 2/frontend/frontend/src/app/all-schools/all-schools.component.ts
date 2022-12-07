@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {EducationUnitsService} from "../educationUnits.service";
 import {EducationUnit} from "../EducationUnit";
-import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-all-schools',

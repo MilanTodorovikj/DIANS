@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {EducationUnitsService} from "../educationUnits.service";
-import {EducationUnit} from "../EducationUnit";
 
 @Component({
   selector: 'app-specific-school',
