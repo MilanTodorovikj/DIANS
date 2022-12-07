@@ -17,7 +17,7 @@ export class ReviewsComponent {
   ngOnInit() {
     this.route
       .params.subscribe(s => {
-        console.log(s["id"]);
+        // console.log(s["id"]);
         this.id = s["id"];
       }
     )
@@ -25,7 +25,7 @@ export class ReviewsComponent {
     this.reviewService.getReviews(this.id).subscribe(
       (response) =>{
         this.reviews=response;
-        console.log(response);
+        // console.log(response);
       }
     )
   }
