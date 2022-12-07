@@ -6,7 +6,8 @@ import {SpecificSchoolComponent} from "./specific-school/specific-school.compone
 const routes: Routes = [
   {path: '', redirectTo: 'all', pathMatch: 'full'},
   {path: 'all', component: AllSchoolsComponent},
-  {path: 'detail/:id', component: SpecificSchoolComponent}
+  {path: 'detail/:id', component: SpecificSchoolComponent},
+  { path: '**', redirectTo: 'all', pathMatch: 'full' }
 ];
 
 @NgModule({

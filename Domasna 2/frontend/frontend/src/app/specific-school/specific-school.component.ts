@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {EducationUnitsService} from "../educationUnits.service";
-import {EducationUnit} from "../EducationUnit";
 
 @Component({
   selector: 'app-specific-school',
@@ -19,14 +18,14 @@ export class SpecificSchoolComponent {
   ngOnInit() {
     this.route
       .params.subscribe(s => {
-        console.log(s["id"]);
+        // console.log(s["id"]);
         this.a = s["id"];
       }
     )
 
     this.unitService.getEducationUnit(this.a).subscribe(
       (response) => {
-        console.log(response)
+        // console.log(response)
         this.item = response;
       }
     )

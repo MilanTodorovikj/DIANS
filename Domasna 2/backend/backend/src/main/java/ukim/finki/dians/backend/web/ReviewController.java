@@ -7,6 +7,7 @@ import ukim.finki.dians.backend.service.ReviewService;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/review")
 public class ReviewController {

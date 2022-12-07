@@ -2,6 +2,7 @@ package ukim.finki.dians.backend.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import ukim.finki.dians.backend.model.helperFront.EducationUnitHelperFront;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,5 +39,19 @@ public class EducationUnit {
         this.lat = lat;
         this.lon = lon;
         reviews = new ArrayList<>();
+    }
+
+    public EducationUnitHelperFront getAsFrontHelper(){
+        EducationUnitHelperFront educationUnitHelperFront = new EducationUnitHelperFront();
+        educationUnitHelperFront.setId(id);
+        educationUnitHelperFront.setName(name);
+        educationUnitHelperFront.setCity(city);
+        educationUnitHelperFront.setStreet(street);
+        educationUnitHelperFront.setType(type);
+        educationUnitHelperFront.setPhone(phone);
+        educationUnitHelperFront.setWebsite(website);
+        educationUnitHelperFront.setLat(lat);
+        educationUnitHelperFront.setLon(lon);
+        return educationUnitHelperFront;
     }
 }

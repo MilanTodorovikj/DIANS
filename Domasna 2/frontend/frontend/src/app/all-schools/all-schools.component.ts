@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {EducationUnitsService} from "../educationUnits.service";
 import {EducationUnit} from "../EducationUnit";
-import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-all-schools',
@@ -51,7 +50,7 @@ export class AllSchoolsComponent implements OnInit {
   setModal(id: number) {
     this.educationUnitsService.getEducationUnit(id).subscribe(
       (response) => {
-        this.modal = this.displayData.at(id - 1);
+        this.modal = this.displayData.at(id-1);
       },
       (error) => {
         console.log("Error Occurred: " + error);
