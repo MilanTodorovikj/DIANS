@@ -12,10 +12,10 @@ export class SpecificSchoolComponent {
   }
 
   a: number = 1;
+  numbers = [1,2,3,4,5]
 
   item: any;
   ngOnInit() {
-    // this.unitService.getEducationUnit(this.route.queryParams)
     this.route
       .params.subscribe(s => {
         // console.log(s["id"]);

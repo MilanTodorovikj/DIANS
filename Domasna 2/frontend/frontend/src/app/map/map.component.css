@@ -6,16 +6,21 @@
 
 app-search-bar {
   position: absolute;
-  top: 30px;
+  top: 25px;
   z-index: 99999;
-  left: 50%;
+  left: 55%;
   transform: translateX(-50%);
 }
 
 app-all-schools {
   position: absolute;
-  top: 50px;
   left: 60px;
+  z-index: 99999;
+}
+app-home-icon {
+  position: absolute;
+  top: 85%;
+  left: 90%;
   z-index: 99999;
 }
 

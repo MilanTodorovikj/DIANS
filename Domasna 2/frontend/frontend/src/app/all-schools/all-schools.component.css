@@ -3,17 +3,14 @@
   font-weight: bold;
   font-family: Calibri;
 }
-
-
-
-.accordion {
-  border-radius: 36px;
-  width: 25rem;
-  background: #f9f9ff;
+.container .accordion .accordion-item{
+  border-radius: 10px !important;
 }
 
-.accordion-body {
-  height: 43rem;
+.accordion {
+  border-radius: 10px ;
+  width: 25rem;
+  background: #f9f9ff;
 }
 
 ul {
@@ -38,9 +35,11 @@ a a {
 }
 
 .accordion-body {
+  height: 37rem;
   padding: 0rem;
   max-height: 100%;
   overflow-y: scroll;
+  border-radius: 10px
 }
 
 
@@ -62,3 +61,63 @@ a a {
 .unittext strong {
   color: #1f1f1f;
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+  margin-right: 1000px !important;
+}
+
+
+::-webkit-scrollbar-track {
+  background: gainsboro;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.09);
+  border-radius: 10px;
+}
+
+.loadbtn{
+  background-color: #2d7afa;
+  border-color: #2070f6;
+}
+
+.accordion-header{
+  background-color: white !important;
+  text-decoration:none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  border-radius: 10px !important;
+
+}
+
+.accordion-header :focus{
+  background-color: white !important;
+  text-decoration:none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.accordion-header:not(.collapse)::ng-deep{
+  background-color: white !important;
+  text-decoration:none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+
+.accordion-button{
+  border-radius: 10px !important;
+  color: #2d7afa;
+  font-weight: bold;
+}
+
+strong{
+  color: #3aa93a !important;
+  font-size: large;
+}
+

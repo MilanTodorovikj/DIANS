@@ -9,6 +9,4 @@ import * as Leaflet from 'leaflet';
 })
 export class AppComponent {
 
-
-
 }
