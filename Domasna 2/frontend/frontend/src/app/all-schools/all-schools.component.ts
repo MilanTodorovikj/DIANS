@@ -11,7 +11,7 @@ export class AllSchoolsComponent implements OnInit {
   title = "GetEducationUnits";
   data = [];
 
-  constructor(private educationUnitsService: EducationUnitsService) {
+  constructor(private educationUnitsService: EducationUnitsService ) {
   }
 
   units: EducationUnit[] = [];
@@ -50,11 +50,12 @@ export class AllSchoolsComponent implements OnInit {
   setModal(id: number) {
     this.educationUnitsService.getEducationUnit(id).subscribe(
       (response) => {
-        this.modal = this.displayData.at(id-1);
+        this.modal = this.displayData.at(id - 1);
       },
       (error) => {
         console.log("Error Occurred: " + error);
       })
   }
+
 
 }

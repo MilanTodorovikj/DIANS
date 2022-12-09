@@ -6,27 +6,27 @@
 <div class="container">
   <div class="details square">
 
-    <h4 class="modal-title" id="exampleModalLabel"><b>{{item.name}}</b></h4>
+    <h4 class="modal-title" id="exampleModalLabel"><b>{{item?.name}}</b></h4>
 
     <div class="mb-3">Оцена:
       <span *ngFor="let num of numbers">&#9734;</span>
     </div>
 
     <div class="mb-3">
-      <div *ngIf="item.type"><b>Тип: </b>
-        <span>{{item.type.substring(0, 1).toUpperCase() + item.type.substring(1)}}</span></div>
+      <div *ngIf="item?.type"><b>Тип: </b>
+        <span>{{item?.type.substring(0, 1).toUpperCase() + item?.type.substring(1)}}</span></div>
     </div>
     <div class="mb-3">
-      <div *ngIf="item.street"><b>Адреса: </b> <span>{{item.street}}</span></div>
+      <div *ngIf="item?.street"><b>Адреса: </b> <span>{{item?.street}}</span></div>
     </div>
     <div class="mb-3">
-      <div *ngIf="item.city"><b>Град: </b> <span>{{item.city}}</span></div>
+      <div *ngIf="item?.city"><b>Град: </b> <span>{{item?.city}}</span></div>
     </div>
     <div class="mb-3">
-      <div *ngIf="item.phone"><b>Телефонски број: </b><span>{{item.phone}}</span></div>
+      <div *ngIf="item?.phone"><b>Телефонски број: </b><span>{{item?.phone}}</span></div>
     </div>
     <div class="mb-3">
-      <div *ngIf="item.website"><span class="btn btn-primary loadbtn"><a href="{{item.website}}"><b>Посети вебсајт</b></a></span>
+      <div *ngIf="item?.website"><span class="btn btn-primary loadbtn"><a href="{{item?.website}}"><b>Посети вебсајт</b></a></span>
       </div>
     </div>
   </div>

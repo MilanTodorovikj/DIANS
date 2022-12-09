@@ -11,9 +11,9 @@
            data-bs-parent="#accordionExample">
         <div class="accordion-body">
           <ul class="list">
-            <li class="items" *ngFor="let item of displayData">
+            <li (click)="setModal(item.id)" class="items" *ngFor="let item of displayData">
               <a routerLink="/detail/{{item.id}}"
-                 (click)="setModal(item.id)">
+              >
                 <div class="unit">
                   <div class="unittext">
 
