@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {EducationUnitsService} from "../educationUnits.service";
 import {EducationUnit} from "../EducationUnit";
+import {MapComponent} from "../map/map.component";
 
 @Component({
   selector: 'app-all-schools',
@@ -11,7 +12,7 @@ export class AllSchoolsComponent implements OnInit {
   title = "GetEducationUnits";
   data = [];
 
-  constructor(private educationUnitsService: EducationUnitsService ) {
+  constructor(private educationUnitsService: EducationUnitsService, private mapComponent: MapComponent) {
   }
 
   units: EducationUnit[] = [];
@@ -45,17 +46,18 @@ export class AllSchoolsComponent implements OnInit {
       newLength = this.units.length
     }
     this.displayData = this.units.slice(0, newLength);
+    this.mapComponent.ngAfterViewInit(newLength as number);
   }
 
-  setModal(id: number) {
-    this.educationUnitsService.getEducationUnit(id).subscribe(
-      (response) => {
-        this.modal = this.displayData.at(id - 1);
-      },
-      (error) => {
-        console.log("Error Occurred: " + error);
-      })
-  }
+  // setModal(id: number) {
+  //   this.educationUnitsService.getEducationUnit(id).subscribe(
+  //     (response) => {
+  //       this.modal = this.displayData.at(id - 1);
+  //     },
+  //     (error) => {
+  //       console.log("Error Occurred: " + error);
+  //     })
+  // }
 
 
 }

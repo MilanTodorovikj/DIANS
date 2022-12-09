@@ -4,15 +4,17 @@
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                 aria-expanded="true" aria-controls="collapseOne">
-          <img src="../../assets/logo_with_text.png" height="60px" width="200px"/>
-<!--          Сите институции за образование-->
+          <div class="logodiv">
+            <img src="../../assets/logo_no_text.png" class="logoimg"/><span class="logotext">МојаЕдукација</span>
+          </div>
+          <!--          Сите институции за образование-->
         </button>
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
            data-bs-parent="#accordionExample">
         <div class="accordion-body">
           <ul class="list">
-            <li (click)="setModal(item.id)" class="items" *ngFor="let item of displayData">
+            <li class="items" *ngFor="let item of displayData">
               <a routerLink="/detail/{{item.id}}"
               >
                 <div class="unit">

@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomeIconComponent {
 
+  reloadCurrentPage() {
+    window.location.replace("/all");
+  }
 }
