@@ -19,7 +19,7 @@ export class SpecificSchoolComponent {
 
 
   a: number = 1;
-  numbers = [1, 2, 3, 4, 5]
+  numbers = [1,2,3,4,5]
 
   item: any;
 
@@ -39,6 +39,10 @@ export class SpecificSchoolComponent {
 
         this.mapComponent.setNewMarker(this.item.lat, this.item.lon);
 
+        // // @ts-ignore
+        // for(let i=1;i<=response.reviewAverage;i++){
+        //   this.numbers.push(i);
+        // }
       }
     )
   }

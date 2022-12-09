@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data
-public class EducationUnitHelperFront {
+public class SpecificEducationUnitHelperFront {
     private Long id;
     private String name;
     private String city;
@@ -15,7 +15,9 @@ public class EducationUnitHelperFront {
     private String website;
     private Double lat;
     private Double lon;
+    private Double reviewAverage;
 
-    public EducationUnitHelperFront() {
+    public SpecificEducationUnitHelperFront() {
     }
+
 }
