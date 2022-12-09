@@ -4,10 +4,10 @@ import {AllSchoolsComponent} from "./all-schools/all-schools.component";
 import {SpecificSchoolComponent} from "./specific-school/specific-school.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: 'all', pathMatch: 'full'},
   {path: 'all', component: AllSchoolsComponent},
   {path: 'detail/:id', component: SpecificSchoolComponent},
-  { path: '**', redirectTo: 'all', pathMatch: 'full' }
+  { path: '**', redirectTo: 'all', pathMatch: 'full' },
+  {path: '', redirectTo: 'all', pathMatch: 'full'},
 ];
 
 @NgModule({
