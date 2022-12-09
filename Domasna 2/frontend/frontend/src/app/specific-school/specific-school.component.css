@@ -1,6 +1,11 @@
+.container {
+  transform: translateX(-8rem);
+  width: 60%;
+}
+
 .square {
   border-radius: 20px;
-  width: 21rem;
+  width: 100%;
   height: 21rem;
   background: #f9f9ff;
   padding: 1.25rem;
@@ -8,11 +13,12 @@
   box-shadow: 4px 3px 8px 1px #969696;
   -webkit-box-shadow: 4px 3px 8px 1px rgba(7, 3, 3, 0.15);
   position: absolute;
+
 }
 
 .comments{
   border-radius: 20px;
-  width: 21rem;
+  width: 100%;
   height: 21rem;
   background: #f9f9ff;
   padding: 1.25rem;
@@ -48,5 +54,18 @@ a{
   border-color: #2070f6;
   color: white !important;
   margin: 0;
+}
+
+.homeButton {
+  width: 1.5em;
+  height: 1.5rem;
+  color: #2070f6 !important;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.homeButton:hover {
+  transform: scale(1.2);
+  color: #2070f6 !important;
 }
 

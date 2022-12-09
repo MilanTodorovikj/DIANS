@@ -46,4 +46,8 @@ export class SpecificSchoolComponent {
   ngOnDestroy() {
     // this.sub.unsubscribe();
   }
+
+  goHome() {
+    window.location.replace("/all");
+  }
 }

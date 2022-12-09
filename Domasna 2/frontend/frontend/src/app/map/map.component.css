@@ -6,7 +6,7 @@ app-search-bar {
   left: 50%;
   transform: translateX(-50%);
   width: 30rem;
-  max-width: calc(100% - 30rem);
+  max-width: calc(100% - 15rem);
   min-width: 15rem;
 }
 

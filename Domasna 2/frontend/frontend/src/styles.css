@@ -16,7 +16,17 @@ router-outlet + * {
   top: 30px;
   left: 60px;
   z-index: 1000;
-  width: 25rem;
+  width: 30rem;
+  max-width: calc(100% - 15rem);
+  min-width: 15rem;
+}
+
+@media only screen and (max-width: 1360px) {
+  router-outlet + * {
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 
