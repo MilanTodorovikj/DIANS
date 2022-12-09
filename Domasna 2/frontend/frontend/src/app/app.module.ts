@@ -10,7 +10,10 @@ import {AllSchoolsComponent} from './all-schools/all-schools.component';
 import {HttpClientModule} from '@angular/common/http';
 import { SpecificSchoolComponent } from './specific-school/specific-school.component';
 import { ReviewsComponent } from './reviews/reviews.component';
-import { HomeIconComponent } from './home-icon/home-icon.component'
+import { HomeIconComponent } from './home-icon/home-icon.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+import {MatIconModule} from '@angular/material/icon'
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { HomeIconComponent } from './home-icon/home-icon.component'
     BrowserModule,
     AppRoutingModule,
     LeafletModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

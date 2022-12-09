@@ -17,8 +17,15 @@
       </a>
     </h4>
 
-    <div class="mb-3">Оцена:
-      <span *ngFor="let num of numbers">&#9734;</span>
+    <div class="mb-3 review-average"><div class="col-lg-3 grade">Оцена:</div>
+<!--      <span *ngFor="let num of numbers">&#9734;</span>-->
+      <div class="col-lg-6 grade">
+      <span *ngFor="let num of numbers">
+        <mat-icon *ngIf="num<=item?.reviewAverage">star</mat-icon>
+        <mat-icon *ngIf="num<item?.reviewAverage && num!=item?.reviewAverage && num+1>item?.reviewAverage">star_half</mat-icon>
+        <mat-icon *ngIf="num>item?.reviewAverage && num-1>=item?.reviewAverage">star_border</mat-icon>
+      </span>
+      </div>
     </div>
 
     <div class="mb-3">

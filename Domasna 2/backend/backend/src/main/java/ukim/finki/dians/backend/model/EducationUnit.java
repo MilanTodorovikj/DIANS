@@ -2,7 +2,8 @@ package ukim.finki.dians.backend.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import ukim.finki.dians.backend.model.helperFront.EducationUnitHelperFront;
+import ukim.finki.dians.backend.model.helperFront.EducationUnitForListHelperFront;
+import ukim.finki.dians.backend.model.helperFront.SpecificEducationUnitHelperFront;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,17 +42,33 @@ public class EducationUnit {
         reviews = new ArrayList<>();
     }
 
-    public EducationUnitHelperFront getAsFrontHelper(){
-        EducationUnitHelperFront educationUnitHelperFront = new EducationUnitHelperFront();
-        educationUnitHelperFront.setId(id);
-        educationUnitHelperFront.setName(name);
-        educationUnitHelperFront.setCity(city);
-        educationUnitHelperFront.setStreet(street);
-        educationUnitHelperFront.setType(type);
-        educationUnitHelperFront.setPhone(phone);
-        educationUnitHelperFront.setWebsite(website);
-        educationUnitHelperFront.setLat(lat);
-        educationUnitHelperFront.setLon(lon);
-        return educationUnitHelperFront;
+    public EducationUnitForListHelperFront getAsEducationUnitForListFrontHelper(){
+        EducationUnitForListHelperFront educationUnitForListHelperFront = new EducationUnitForListHelperFront();
+        educationUnitForListHelperFront.setId(id);
+        educationUnitForListHelperFront.setName(name);
+        educationUnitForListHelperFront.setCity(city);
+        educationUnitForListHelperFront.setStreet(street);
+        educationUnitForListHelperFront.setType(type);
+        educationUnitForListHelperFront.setPhone(phone);
+        educationUnitForListHelperFront.setWebsite(website);
+        educationUnitForListHelperFront.setLat(lat);
+        educationUnitForListHelperFront.setLon(lon);
+        return educationUnitForListHelperFront;
+    }
+
+    public SpecificEducationUnitHelperFront getAsSpecificEducationUnitHelperFront(){
+        SpecificEducationUnitHelperFront specificEducationUnitHelperFront = new SpecificEducationUnitHelperFront();
+        specificEducationUnitHelperFront.setId(id);
+        specificEducationUnitHelperFront.setName(name);
+        specificEducationUnitHelperFront.setCity(city);
+        specificEducationUnitHelperFront.setStreet(street);
+        specificEducationUnitHelperFront.setType(type);
+        specificEducationUnitHelperFront.setPhone(phone);
+        specificEducationUnitHelperFront.setWebsite(website);
+        specificEducationUnitHelperFront.setLat(lat);
+        specificEducationUnitHelperFront.setLon(lon);
+        Double average = this.reviews.stream().mapToInt(Review::getGrade).average().orElse(0.00);
+        specificEducationUnitHelperFront.setReviewAverage(average);
+        return specificEducationUnitHelperFront;
     }
 }

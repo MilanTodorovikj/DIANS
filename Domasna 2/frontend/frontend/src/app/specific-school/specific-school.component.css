@@ -69,3 +69,14 @@ a{
   color: #2070f6 !important;
 }
 
+.grade{
+  display: inline-block;
+}
+
+@media(min-width: 596px) {
+  .review-average {
+    display: flex;
+    align-content: center;
+  }
+}
+
