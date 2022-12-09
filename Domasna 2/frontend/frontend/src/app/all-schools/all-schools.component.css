@@ -10,7 +10,7 @@
 
 .accordion {
   border-radius: 10px;
-  width: 25rem;
+  width: 100%;
   background: #f9f9ff;
 }
 
@@ -123,6 +123,9 @@ strong {
   font-size: large;
 }
 
+.logoimg {
+  width: 10%;
+}
 
 .logoimg {
   height: 60px;
