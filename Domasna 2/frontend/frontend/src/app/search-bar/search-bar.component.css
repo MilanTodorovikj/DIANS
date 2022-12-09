@@ -1,16 +1,16 @@
 input {
-  border: none;
   padding: 0.5rem 0.7rem;
   margin: 10px;
   height: 2rem;
-  width: 30rem;
+  width: 100%;
   border-radius: 30px;
-  opacity: 0.7;
+  opacity: 0.5;
   color: #4d90fe;
   padding-left: 2.35rem;
   transition: 0.5s ease;
   box-shadow: 4px 3px 8px 1px #969696;
   -webkit-box-shadow: 4px 3px 8px 1px rgba(7, 3, 3, 0.15);
+  border: 1px solid blue;
 }
 
 ::placeholder {
@@ -29,6 +29,13 @@ input:focus{
 }
 
 i.fa.fa-search {
-  transform: translateX(-29.75rem);
+  transform: translate(1.25rem, -2.25rem);
   color: #4d90fe;
+  transition: 0.5s ease;
+}
+
+
+input:hover + i.fa.fa-search {
+  transform: translate(1.35rem, -2.6rem);
+  transition: 0.7s ease;
 }

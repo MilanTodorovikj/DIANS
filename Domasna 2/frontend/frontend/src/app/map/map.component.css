@@ -3,8 +3,11 @@ app-search-bar {
   position: absolute;
   top: 25px;
   z-index: 99999;
-  left: 55%;
+  left: 50%;
   transform: translateX(-50%);
+  width: 30rem;
+  max-width: calc(100% - 30rem);
+  min-width: 15rem;
 }
 
 app-all-schools {

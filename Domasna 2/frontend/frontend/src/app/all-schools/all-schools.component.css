@@ -3,12 +3,13 @@
   font-weight: bold;
   font-family: Calibri;
 }
-.container .accordion .accordion-item{
+
+.container .accordion .accordion-item {
   border-radius: 10px !important;
 }
 
 .accordion {
-  border-radius: 10px ;
+  border-radius: 10px;
   width: 25rem;
   background: #f9f9ff;
 }
@@ -78,14 +79,14 @@ a a {
   border-radius: 10px;
 }
 
-.loadbtn{
+.loadbtn {
   background-color: #2d7afa;
   border-color: #2070f6;
 }
 
-.accordion-header{
+.accordion-header {
   background-color: white !important;
-  text-decoration:none !important;
+  text-decoration: none !important;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   box-shadow: none !important;
@@ -93,31 +94,41 @@ a a {
 
 }
 
-.accordion-header :focus{
+.accordion-header :focus {
   background-color: white !important;
-  text-decoration:none !important;
+  text-decoration: none !important;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   box-shadow: none !important;
 }
 
-.accordion-header:not(.collapse)::ng-deep{
+.accordion-header:not(.collapse)::ng-deep {
   background-color: white !important;
-  text-decoration:none !important;
+  text-decoration: none !important;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   box-shadow: none !important;
 }
 
 
-.accordion-button{
+.accordion-button {
   border-radius: 10px !important;
   color: #2d7afa;
   font-weight: bold;
+  padding: 0.7rem 1rem 0.5rem 0.75rem;
 }
 
-strong{
+strong {
   color: #3aa93a !important;
   font-size: large;
 }
 
+
+.logoimg {
+  height: 60px;
+  width: 200px;
+}
+
+.logotext {
+
+}

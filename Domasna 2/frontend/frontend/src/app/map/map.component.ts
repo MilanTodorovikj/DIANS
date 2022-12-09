@@ -39,7 +39,7 @@ export class MapComponent implements AfterViewInit, OnInit {
     //   this.map.invalidateSize();
     // }
 
-    this.map = new L.map('map').setView(new LatLng(lat, lon), 9);
+    this.map = new L.map('map').setView(new LatLng(lat, lon), 8);
 
     let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 

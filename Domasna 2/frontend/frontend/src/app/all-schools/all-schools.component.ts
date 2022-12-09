@@ -47,15 +47,15 @@ export class AllSchoolsComponent implements OnInit {
     this.displayData = this.units.slice(0, newLength);
   }
 
-  setModal(id: number) {
-    this.educationUnitsService.getEducationUnit(id).subscribe(
-      (response) => {
-        this.modal = this.displayData.at(id - 1);
-      },
-      (error) => {
-        console.log("Error Occurred: " + error);
-      })
-  }
+  // setModal(id: number) {
+  //   this.educationUnitsService.getEducationUnit(id).subscribe(
+  //     (response) => {
+  //       this.modal = this.displayData.at(id - 1);
+  //     },
+  //     (error) => {
+  //       console.log("Error Occurred: " + error);
+  //     })
+  // }
 
 
 }
