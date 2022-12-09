@@ -2,6 +2,8 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 // import * as L from "leaflet";
 import {LatLng} from "leaflet";
 import {ActivatedRoute} from "@angular/router";
+import {EducationUnitsService} from "../educationUnits.service";
+import {EducationUnit} from "../EducationUnit";
 
 declare const L: any;
 
@@ -13,7 +15,8 @@ declare const L: any;
 
 export class MapComponent implements AfterViewInit, OnInit {
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,
+              private unitService: EducationUnitsService) {
   }
 
   ngOnInit(): void {
@@ -23,38 +26,52 @@ export class MapComponent implements AfterViewInit, OnInit {
 
   map: any;
   marker: any;
+  markers: any;
+  items: any;
+  displayData: EducationUnit[] = [];
+
 
   mapOptions = {
     center: new LatLng(41.6626, 21.6541),
     zoom: 9
   }
 
-  private initMap(lat: number = 41.6626, lon: number = 21.6541): void {
+  private initMap(length: number = 10, lat: number = 41.6626, lon: number = 21.6541): void {
 
-    // console.log(this.route.snapshot.params)
     document.getElementById("preMap")!!.innerHTML = "<div id='map' style='width:100vw; height: 100vh;'></div>";
-    // if (this.map != undefined){
-    //   this.map.off()
-    //   this.map.remove();
-    //   this.map.invalidateSize();
-    // }
 
-    this.map = new L.map('map').setView(new LatLng(lat, lon), 8);
+
+    this.map = new L.map('map').setView(new LatLng(lat, lon), 9);
 
     let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 
     this.map.addLayer(layer);
 
 
-    // this.marker = new L.Marker([lat, lon], {
-    //   icon: new L.Icon({
-    //     iconSize: [50, 41],
-    //     iconAnchor: [13, 41],
-    //     iconUrl: '/assets/blue-marker.svg',
-    //   }),
-    //   title: 'Workspace'
-    // });
-    // this.marker.addTo(this.map);
+    this.unitService.getEducationUnits().subscribe(
+      (response) => {
+        this.items = response;
+        this.displayData = this.items.slice(0, 10);
+        console.log(response);
+        for (let i = 0; i < length; i++) {
+          console.log(i);
+
+          this.marker = new L.Marker([this.items[i].lat, this.items[i].lon], {
+            icon: new L.Icon({
+              iconSize: [50, 41],
+              iconAnchor: [13, 41],
+              iconUrl: '/assets/blue-marker.svg',
+            }),
+            title: 'Workspace'
+          });
+          this.marker.addTo(this.map);
+
+        }
+      },
+      (error) => {
+        console.log("Error Occurred: " + error);
+      }
+    )
 
 
   }
@@ -83,8 +100,9 @@ export class MapComponent implements AfterViewInit, OnInit {
 
   }
 
-  ngAfterViewInit(): void {
-    this.initMap();
+  // @ts-ignore
+  ngAfterViewInit(length: number): void {
+    this.initMap(length);
   }
 }
 
