@@ -6,6 +6,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid blue;
+  background: #efeff2;
 }
 .fa .fa-home{
   color: #2d7afa;
