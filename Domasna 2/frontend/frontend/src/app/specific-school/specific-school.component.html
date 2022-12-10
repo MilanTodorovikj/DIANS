@@ -30,7 +30,14 @@
 
     <div class="mb-3">
       <div *ngIf="item?.type"><b>Тип: </b>
-        <span>{{item?.type.substring(0, 1).toUpperCase() + item?.type.substring(1)}}</span></div>
+        <span *ngIf="item.type.toLowerCase()=='school'">Училиште</span>
+        <span *ngIf="item.type.toLowerCase()=='language_school'">Училиште за странски јазици</span>
+        <span *ngIf="item.type.toLowerCase()=='library'">Библиотека</span>
+        <span *ngIf="item.type.toLowerCase()=='kindergarten'">Градинка</span>
+        <span *ngIf="item.type.toLowerCase()=='dormitory'">Студентски дом</span>
+        <span *ngIf="item.type.toLowerCase()=='music_school'">Музичко улилиште</span>
+        <span *ngIf="item.type.toLowerCase()=='college'">Факултет</span>
+        <span *ngIf="item.type.toLowerCase()=='university'">Факултет</span></div>
     </div>
     <div class="mb-3">
       <div *ngIf="item?.street"><b>Адреса: </b> <span>{{item?.street}}</span></div>
