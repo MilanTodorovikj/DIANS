@@ -22,7 +22,16 @@
                   <div class="unittext">
 
 
-                    <strong>{{item.type.substring(0, 1).toUpperCase() + item.type.substring(1)}}</strong>
+<!--                    <strong>{{item.type.substring(0, 1).toUpperCase() + item.type.substring(1)}}</strong>-->
+                    <strong *ngIf="item.type.toLowerCase()=='school'">Училиште</strong>
+                    <strong *ngIf="item.type.toLowerCase()=='language_school'">Училиште за странски јазици</strong>
+                    <strong *ngIf="item.type.toLowerCase()=='library'">Библиотека</strong>
+                    <strong *ngIf="item.type.toLowerCase()=='kindergarten'">Градинка</strong>
+                    <strong *ngIf="item.type.toLowerCase()=='dormitory'">Студентски дом</strong>
+                    <strong *ngIf="item.type.toLowerCase()=='music_school'">Музичко улилиште</strong>
+                    <strong *ngIf="item.type.toLowerCase()=='college'">Факултет</strong>
+                    <strong *ngIf="item.type.toLowerCase()=='university'">Факултет</strong>
+
                     -
                     {{item.name}}, {{item.street}}, {{item.city}}<br/>
                     {{item.phone}}

@@ -1,0 +1,27 @@
+ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+li {
+  list-style-type: none;
+
+  position: relative;
+  display: block;
+  color: #212529;
+  margin-bottom: 8px;
+}
+
+.visitor-name{
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #2d7afa;
+}
+
+.comment{
+  color: #2d7afa;
+}
+
+.date{
+  color:grey;
+}
