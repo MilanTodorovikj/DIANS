@@ -49,15 +49,7 @@ export class AllSchoolsComponent implements OnInit {
     this.mapComponent.ngAfterViewInit(newLength as number);
   }
 
-  // setModal(id: number) {
-  //   this.educationUnitsService.getEducationUnit(id).subscribe(
-  //     (response) => {
-  //       this.modal = this.displayData.at(id - 1);
-  //     },
-  //     (error) => {
-  //       console.log("Error Occurred: " + error);
-  //     })
-  // }
+
 
 
 }

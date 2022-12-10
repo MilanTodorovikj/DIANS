@@ -5,7 +5,8 @@ app-search-bar {
   z-index: 99999;
   left: 50%;
   transform: translateX(-50%);
-  width: 30rem;
+  width: 27.5rem;
+  height: 2rem;
   max-width: calc(100% - 15rem);
   min-width: 15rem;
 }
@@ -15,6 +16,7 @@ app-all-schools {
   left: 60px;
   z-index: 99999;
 }
+
 app-home-icon {
   position: absolute;
   top: 85%;
@@ -37,7 +39,7 @@ app-home-icon {
   height: 100%;
 }
 
-#map{
+#map {
   width: 100vw;
   height: 100vh;
 }
