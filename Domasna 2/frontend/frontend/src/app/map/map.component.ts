@@ -13,15 +13,12 @@ declare const L: any;
   styleUrls: ['./map.component.css']
 })
 
-export class MapComponent implements AfterViewInit, OnInit {
+export class MapComponent implements AfterViewInit {
 
   constructor(private route: ActivatedRoute,
               private unitService: EducationUnitsService) {
   }
 
-  ngOnInit(): void {
-    // console.log(this.route.snapshot.params)
-  }
 
 
   map: any;

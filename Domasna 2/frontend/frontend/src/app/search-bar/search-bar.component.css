@@ -13,6 +13,10 @@ input {
   border: 1px solid blue;
 }
 
+.search {
+  height: 2rem;
+}
+
 ::placeholder {
   color: #4d90fe;
 }
@@ -24,7 +28,7 @@ input:hover {
   background-color: white;
 }
 
-input:focus{
+input:focus {
   outline: none;
 }
 
