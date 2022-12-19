@@ -1,0 +1,21 @@
+.circle {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid blue;
+  background: #efeff2;
+  transition: 0.25s ease;
+}
+
+.circle:hover {
+  background: #b6ccff;
+  transform: scale(1.2);
+}
+
+.fa .fa-home {
+  color: #2d7afa;
+}
