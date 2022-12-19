@@ -1,14 +1,17 @@
 package ukim.finki.dians.backend.service.impl;
 
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import ukim.finki.dians.backend.model.EducationUnit;
 import ukim.finki.dians.backend.model.Review;
 import ukim.finki.dians.backend.model.exceptions.EducationUnitNotFound;
+import ukim.finki.dians.backend.model.filter.EducationUnitFilter;
 import ukim.finki.dians.backend.model.helperFront.EducationUnitForListHelperFront;
 import ukim.finki.dians.backend.model.helperFront.SpecificEducationUnitHelperFront;
 import ukim.finki.dians.backend.repository.EducationUnitRepository;
 import ukim.finki.dians.backend.service.EducationUnitService;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -32,7 +35,7 @@ public class EducationUnitServiceImpl implements EducationUnitService {
     }
 
     @Override
-    public SpecificEducationUnitHelperFront findById(Long id) {
+    public SpecificEducationUnitHelperFront findForFrontById(Long id) {
         if(educationUnitRepository.findById(id).isEmpty())
             throw new EducationUnitNotFound(id);
         return educationUnitRepository.findById(id).get().getAsSpecificEducationUnitHelperFront();
@@ -45,4 +48,40 @@ public class EducationUnitServiceImpl implements EducationUnitService {
         EducationUnit educationUnit = this.educationUnitRepository.findById(id).get();
         return educationUnitRepository.getAllReviews(educationUnit);
     }
+
+    @Override
+    public EducationUnit save(EducationUnit educationUnit) {
+        return this.educationUnitRepository.save(educationUnit);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        if(educationUnitRepository.findById(id).isEmpty())
+            throw new EducationUnitNotFound(id);
+        this.educationUnitRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional
+    public EducationUnit editById(Long id,EducationUnit educationUnit) {
+        if(this.educationUnitRepository.findById(id).isEmpty())
+            throw new EducationUnitNotFound(id);
+        this.educationUnitRepository.deleteById(id);
+        return this.educationUnitRepository.save(educationUnit);
+    }
+
+    @Override
+    public List<SpecificEducationUnitHelperFront> filter(EducationUnitFilter educationUnitFilter) {
+        if(educationUnitFilter.getSort())
+            return this.educationUnitRepository.filter(educationUnitFilter).stream().map(eu->eu.getAsSpecificEducationUnitHelperFront()).sorted(Comparator.comparing(SpecificEducationUnitHelperFront::getReviewAverage).reversed()).toList();
+        else
+            return this.educationUnitRepository.filter(educationUnitFilter).stream().map(eu->eu.getAsSpecificEducationUnitHelperFront()).sorted(Comparator.comparing(SpecificEducationUnitHelperFront::getReviewAverage)).toList();
+    }
+
+    @Override
+    public EducationUnit findById(Long id) {
+        return this.educationUnitRepository.findById(id).orElseThrow(()->new EducationUnitNotFound(id));
+    }
+
+
 }

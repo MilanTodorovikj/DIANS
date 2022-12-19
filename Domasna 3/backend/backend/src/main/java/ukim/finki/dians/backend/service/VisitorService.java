@@ -1,5 +1,7 @@
 package ukim.finki.dians.backend.service;
 
-public interface VisitorService {
+import ukim.finki.dians.backend.model.Visitor;
 
+public interface VisitorService {
+    Visitor save(String name, String email);
 }
