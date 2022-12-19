@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="details square overflow-auto">
+
+    <h4 class="modal-title" id="exampleModalLabel">
+      <b>{{item?.name}}</b>
+      <a (click)="goHome()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+             class="bi bi-arrow-left-circle homeButton" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+        </svg>
+      </a>
+    </h4>
+
+    <div class="mb-3 review-average">
+      <div class="col-lg-12 grade">
+      <span *ngFor="let num of numbers">
+        <mat-icon *ngIf="num<=item?.reviewAverage">star</mat-icon>
+        <mat-icon
+          *ngIf="num<item?.reviewAverage && num!=item?.reviewAverage && num+1>item?.reviewAverage">star_half</mat-icon>
+        <mat-icon *ngIf="num>item?.reviewAverage && num-1>=item?.reviewAverage">star_border</mat-icon>
+      </span>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <div *ngIf="item?.type"><b>Тип: </b>
+        <span *ngIf="item.type.toLowerCase()=='school'">Училиште</span>
+        <span *ngIf="item.type.toLowerCase()=='language_school'">Училиште за странски јазици</span>
+        <span *ngIf="item.type.toLowerCase()=='library'">Библиотека</span>
+        <span *ngIf="item.type.toLowerCase()=='kindergarten'">Градинка</span>
+        <span *ngIf="item.type.toLowerCase()=='dormitory'">Студентски дом</span>
+        <span *ngIf="item.type.toLowerCase()=='music_school'">Музичко улилиште</span>
+        <span *ngIf="item.type.toLowerCase()=='college'">Факултет</span>
+        <span *ngIf="item.type.toLowerCase()=='university'">Факултет</span></div>
+    </div>
+    <div class="mb-3">
+      <div *ngIf="item?.street"><b>Адреса: </b> <span>{{item?.street}}</span></div>
+    </div>
+    <div class="mb-3">
+      <div *ngIf="item?.city"><b>Град: </b> <span>{{item?.city}}</span></div>
+    </div>
+    <div class="mb-3">
+      <div *ngIf="item?.phone"><b>Телефонски број: </b><span>{{item?.phone}}</span></div>
+    </div>
+    <div class="mb-3">
+      <div *ngIf="item?.website"><span class="btn btn-primary loadbtn"><a href="{{item?.website}}"><b>Посети вебсајт</b></a></span>
+      </div>
+    </div>
+  </div>
+  <div class="comments overflow-auto">
+
+    <h4><b>Коментари</b></h4>
+    <app-reviews></app-reviews>
+
+
+  </div>
+
+
+</div>
