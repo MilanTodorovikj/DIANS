@@ -34,7 +34,7 @@ export class AllSchoolsComponent implements OnInit {
         this.modal = this.displayData.at(0);
       },
       (error) => {
-        console.log("Error Occurred: " + error);
+        console.log("Error Occurred: " + JSON.stringify(error));
       }
     )
 

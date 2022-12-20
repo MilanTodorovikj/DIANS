@@ -83,5 +83,10 @@ public class EducationUnitServiceImpl implements EducationUnitService {
         return this.educationUnitRepository.findById(id).orElseThrow(()->new EducationUnitNotFound(id));
     }
 
+    @Override
+    public List<EducationUnit> search(String term) {
+        return this.educationUnitRepository.findAllByNameContaining(term);
+    }
+
 
 }
