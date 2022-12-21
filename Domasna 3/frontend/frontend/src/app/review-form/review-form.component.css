@@ -1,0 +1,9 @@
+.bi-clipboard-plus {
+  transition: 0.2s ease;
+}
+
+.bi-clipboard-plus:hover {
+  transform: scale(1.125);
+  /*background: rgba(45, 122, 250, 0.15);*/
+  cursor: pointer;
+}

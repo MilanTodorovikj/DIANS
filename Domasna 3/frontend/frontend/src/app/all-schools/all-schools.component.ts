@@ -59,7 +59,7 @@ export class AllSchoolsComponent implements OnInit {
         console.log("Error Occurred: " + JSON.stringify(error));
       }
     )
-    this.mapComponent.ngAfterViewInit(10 as number,this.educationUnitFilter);
+    this.mapComponent.ngAfterViewInit(10 as number, this.educationUnitFilter,false);
   }
 
   showMore() {
@@ -68,7 +68,7 @@ export class AllSchoolsComponent implements OnInit {
       newLength = this.units.length
     }
     this.displayData = this.units.slice(0, newLength);
-    this.mapComponent.ngAfterViewInit(newLength as number,this.educationUnitFilter);
+    this.mapComponent.ngAfterViewInit(newLength as number, this.educationUnitFilter,true);
   }
 
   onCityChange(e: string) {
@@ -92,7 +92,7 @@ export class AllSchoolsComponent implements OnInit {
       length = this.units.length
     }
     this.displayData = this.units.slice(0, length);
-    this.mapComponent.ngAfterViewInit(length as number,this.educationUnitFilter);
+    this.mapComponent.ngAfterViewInit(length as number, this.educationUnitFilter,false);
 
   }
 
@@ -116,7 +116,7 @@ export class AllSchoolsComponent implements OnInit {
       length = this.units.length
     }
     this.displayData = this.units.slice(0, length);
-    this.mapComponent.ngAfterViewInit(length as number,this.educationUnitFilter);
+    this.mapComponent.ngAfterViewInit(length as number, this.educationUnitFilter,false);
   }
 
   onSortChange() {
@@ -143,7 +143,7 @@ export class AllSchoolsComponent implements OnInit {
       length = this.units.length
     }
     this.displayData = this.units.slice(0, length);
-    this.mapComponent.ngAfterViewInit(length as number,this.educationUnitFilter);
+    this.mapComponent.ngAfterViewInit(length as number, this.educationUnitFilter,false);
   }
 
 

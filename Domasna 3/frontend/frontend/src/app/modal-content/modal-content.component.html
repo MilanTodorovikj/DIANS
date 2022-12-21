@@ -1,0 +1,109 @@
+<div >
+
+  <div class="modal-header">
+    <h4 class="modal-title"><b>Modal title</b></h4>
+  </div>
+  <div class="modal-body">
+    <h5>Школа</h5>
+    <hr/>
+
+    <!-- ERROR MESSAGE -->
+    <div id="error-message" class="alert alert-danger d-none"></div>
+
+
+    <label for="rate">Оцена:</label>
+    <div id="rate" class="form-group rating mb-3">
+      <!-- FIFTH STAR -->
+      <input type="radio" id="star_5" name="rate" value="5"/>
+      <label for="star_5" title="Five">&#9733;</label>
+      <!-- FOURTH STAR -->
+      <input type="radio" id="star_4" name="rate" value="4"/>
+      <label for="star_4" title="Four">&#9733;</label>
+      <!-- THIRD STAR -->
+      <input type="radio" id="star_3" name="rate" value="3"/>
+      <label for="star_3" title="Three">&#9733;</label>
+      <!-- SECOND STAR -->
+      <input type="radio" id="star_2" name="rate" value="2"/>
+      <label for="star_2" title="Two">&#9733;</label>
+      <!-- FIRST STAR -->
+      <input type="radio" id="star_1" name="rate" value="1"/>
+      <label for="star_1" title="One">&#9733;</label>
+    </div>
+
+    <div class="form-group mb-3">
+      <!-- Comment field -->
+      <label for="comment">Коментар:</label>
+      <textarea class="form-control" id="comment" name="comment"></textarea>
+    </div>
+    <div class="form-group mb-3">
+      <!-- Name and surname fields -->
+      <label for="name">Име и Презиме:</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="John Doe">
+    </div>
+    <div class="form-group mb-3">
+      <!-- Email field -->
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name="email">
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Close</button>
+    <button type="submit" class="btn btn-primary" id="submitReview" (click)="addReview()">Submit</button>
+
+  </div>
+
+</div>
+
+<script>
+  // Get the form element
+  const form = document.getElementById("review-form");
+
+  console.log("omg:");
+  // Get the error message element
+  const errorMessage = document.getElementById("error-message");
+
+  // Add a submit event listener to the form
+  form.addEventListener("submit", (event) => {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    // Get the rating, comment, name, surname, and email values
+    const rating = form.elements.rate.value;
+    const comment = form.elements.comment.value;
+    const name = form.elements.name.value;
+    const email = form.elements.email.value;
+
+    // Validate the form data
+    let isValid = true;
+    errorMessage.innerHTML = "";
+    errorMessage.classList.add("d-none");
+
+    if (!rating) {
+      errorMessage.innerHTML += "Please select a rating.<br>";
+      isValid = false;
+    }
+    if (!comment) {
+      errorMessage.innerHTML += "Please enter a comment.<br>";
+      isValid = false;
+    }
+    if (!name) {
+      errorMessage.innerHTML += "Please enter your name.<br>";
+      isValid = false;
+    }
+    if (!email) {
+      errorMessage.innerHTML += "Please enter your email.<br>";
+      isValid = false;
+    }
+
+    // If the form is valid, send the data to the server using an AJAX request or other method
+    if (isValid) {
+      // Send the data to the server
+      console.log("Clicked on")
+
+      document.forms["review-form"].submit()
+    } else {
+      // Display the error message
+      errorMessage.classList.remove("d-none");
+    }
+  });
+</script>
