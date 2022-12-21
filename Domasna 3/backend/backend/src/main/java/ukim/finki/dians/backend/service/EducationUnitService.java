@@ -23,7 +23,7 @@ public interface EducationUnitService {
 
     EducationUnit editById(Long id, EducationUnit educationUnit);
 
-    List<SpecificEducationUnitHelperFront> filter(EducationUnitFilter educationUnitFilter);
+    List<SpecificEducationUnitHelperFront> filter(String city, String type, Boolean sort);
 
     EducationUnit findById(Long id);
 

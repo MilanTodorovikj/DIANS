@@ -55,8 +55,10 @@ public class EducationUnitController {
     }
 
     @GetMapping(path = "/filter")
-    public List<SpecificEducationUnitHelperFront> filter(@RequestBody EducationUnitFilter educationUnitFilter){
-        return this.educationUnitService.filter(educationUnitFilter);
+    public List<SpecificEducationUnitHelperFront> filter(@RequestParam(required = false) String city,
+                                                         @RequestParam(required = false)String type,
+                                                         @RequestParam(required = false)Boolean sort){
+        return this.educationUnitService.filter(city, type, sort);
     }
 
     @GetMapping(path = "/search")

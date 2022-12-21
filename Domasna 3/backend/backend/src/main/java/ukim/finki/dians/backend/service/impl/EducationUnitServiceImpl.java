@@ -71,7 +71,9 @@ public class EducationUnitServiceImpl implements EducationUnitService {
     }
 
     @Override
-    public List<SpecificEducationUnitHelperFront> filter(EducationUnitFilter educationUnitFilter) {
+    public List<SpecificEducationUnitHelperFront> filter(String city, String type, Boolean sort) {
+        EducationUnitFilter educationUnitFilter = new EducationUnitFilter(city, type, sort);
+
         if(educationUnitFilter.getSort())
             return this.educationUnitRepository.filter(educationUnitFilter).stream().map(eu->eu.getAsSpecificEducationUnitHelperFront()).sorted(Comparator.comparing(SpecificEducationUnitHelperFront::getReviewAverage).reversed()).toList();
         else

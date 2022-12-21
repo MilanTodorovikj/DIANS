@@ -132,3 +132,15 @@ strong {
 .logotext {
 
 }
+
+.sorting{
+  display: inline-block;
+  text-align: right;
+}
+
+.mat-icon {
+  transform: scale(1.8);
+  margin-top: -15px;
+}
+
+
