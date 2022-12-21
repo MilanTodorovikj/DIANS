@@ -21,4 +21,7 @@ public interface EducationUnitRepository extends JpaRepository<EducationUnit,Lon
             " lower(eu.type) like %:#{#educationUnitFilter.type.toLowerCase()}% " +
             "and lower(eu.city) like %:#{#educationUnitFilter.city.toLowerCase()}%")
     List<EducationUnit> filter(@Param("educationUnitFilter") EducationUnitFilter educationUnitFilter);
+
+
+    List<EducationUnit> findAllByNameContaining(String term);
 }

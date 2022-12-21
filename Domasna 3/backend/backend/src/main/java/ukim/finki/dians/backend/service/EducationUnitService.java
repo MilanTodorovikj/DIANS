@@ -26,4 +26,6 @@ public interface EducationUnitService {
     List<SpecificEducationUnitHelperFront> filter(EducationUnitFilter educationUnitFilter);
 
     EducationUnit findById(Long id);
+
+    List<EducationUnit> search(String term);
 }

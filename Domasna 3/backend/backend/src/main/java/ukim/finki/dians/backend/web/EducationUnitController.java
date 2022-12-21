@@ -11,7 +11,7 @@ import ukim.finki.dians.backend.service.impl.FillProperties;
 import java.io.IOException;
 import java.util.List;
 
-@CrossOrigin
+@CrossOrigin("http://localhost:4200")
 @RestController()
 @RequestMapping("/educationUnit")
 public class EducationUnitController {
@@ -57,6 +57,11 @@ public class EducationUnitController {
     @GetMapping(path = "/filter")
     public List<SpecificEducationUnitHelperFront> filter(@RequestBody EducationUnitFilter educationUnitFilter){
         return this.educationUnitService.filter(educationUnitFilter);
+    }
+
+    @GetMapping(path = "/search")
+    public List<EducationUnit> searchEducationUnits(@RequestParam String term){
+        return this.educationUnitService.search(term);
     }
 
 }
