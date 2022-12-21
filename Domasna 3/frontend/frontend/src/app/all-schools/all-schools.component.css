@@ -1,0 +1,146 @@
+.header {
+  color: #4d90fe;
+  font-weight: bold;
+}
+
+.container .accordion .accordion-item {
+  border-radius: 10px !important;
+}
+
+.accordion {
+  border-radius: 10px;
+  width: 100%;
+  background: #f9f9ff;
+}
+
+ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+
+li {
+  list-style-type: none;
+  position: relative;
+  display: block;
+  color: #212529;
+}
+
+ul:first-child {
+  margin-top: 2rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+a a {
+  text-decoration: underline;
+}
+
+.accordion-body {
+  min-height: 55vh;
+  max-height: 90vh;
+  padding: 0;
+  overflow-y: scroll;
+  border-radius: 10px;
+}
+
+
+.unit {
+  background: #fff;
+  transition: 0.5s ease-in;
+}
+
+.unit:hover {
+  background: #c8e2ff;
+  transition: 0s ease-in;
+}
+
+.unittext {
+  padding: 0.25rem 0.5rem;
+}
+
+.unittext strong {
+  color: #1f1f1f;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  margin-right: 1000px !important;
+}
+
+
+::-webkit-scrollbar-track {
+  background: gainsboro;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.09);
+  border-radius: 10px;
+}
+
+.loadbtn {
+  background-color: #2d7afa;
+  border-color: #2070f6;
+}
+
+.accordion-header {
+  background-color: white !important;
+  text-decoration: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  border-radius: 10px !important;
+
+}
+
+.accordion-header :focus {
+  background-color: white !important;
+  text-decoration: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.accordion-header:not(.collapse)::ng-deep {
+  background-color: white !important;
+  text-decoration: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+
+.accordion-button {
+  border-radius: 10px !important;
+  color: #2d7afa;
+  font-weight: bold;
+  padding: 0.7rem 1rem 0.5rem 0.75rem;
+}
+
+strong {
+  color: #3aa93a !important;
+  font-size: large;
+}
+
+.logoimg {
+  width: 10%;
+}
+
+.logotext {
+
+}
+
+.sorting{
+  display: inline-block;
+  text-align: right;
+}
+
+.mat-icon {
+  transform: scale(1.8);
+  margin-top: -15px;
+}
+
+

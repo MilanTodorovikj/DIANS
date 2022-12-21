@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import ukim.finki.dians.backend.model.EducationUnit;
 import ukim.finki.dians.backend.model.Review;
 import ukim.finki.dians.backend.model.exceptions.EducationUnitNotFound;
+import ukim.finki.dians.backend.model.helperFront.EducationUnitForListHelperFront;
+import ukim.finki.dians.backend.model.helperFront.SpecificEducationUnitHelperFront;
 import ukim.finki.dians.backend.repository.EducationUnitRepository;
 import ukim.finki.dians.backend.service.EducationUnitService;
 
@@ -25,15 +27,16 @@ public class EducationUnitServiceImpl implements EducationUnitService {
     }
 
     @Override
-    public List<EducationUnit> findAll() {
-        return educationUnitRepository.findAll();
+    public List<EducationUnitForListHelperFront> findAll() {
+        return educationUnitRepository.findAll()
+                .stream().map(EducationUnit::getAsEducationUnitForListFrontHelper).toList();
     }
 
     @Override
-    public EducationUnit findById(Long id) {
+    public SpecificEducationUnitHelperFront findById(Long id) {
         if(educationUnitRepository.findById(id).isEmpty())
             throw new EducationUnitNotFound(id);
-        return educationUnitRepository.findById(id).get();
+        return educationUnitRepository.findById(id).get().getAsSpecificEducationUnitHelperFront();
     }
 
     @Override

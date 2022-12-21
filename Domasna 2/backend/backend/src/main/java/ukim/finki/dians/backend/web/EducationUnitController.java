@@ -1,7 +1,8 @@
 package ukim.finki.dians.backend.web;
 
 import org.springframework.web.bind.annotation.*;
-import ukim.finki.dians.backend.model.EducationUnit;
+import ukim.finki.dians.backend.model.helperFront.EducationUnitForListHelperFront;
+import ukim.finki.dians.backend.model.helperFront.SpecificEducationUnitHelperFront;
 import ukim.finki.dians.backend.service.EducationUnitService;
 import ukim.finki.dians.backend.service.impl.FillProperties;
 
@@ -9,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin
 @RestController()
 @RequestMapping("/educationUnit")
 public class EducationUnitController {
@@ -27,12 +29,12 @@ public class EducationUnitController {
     }
 
     @GetMapping("/all")
-    public List<EducationUnit> findAll(){
+    public List<EducationUnitForListHelperFront> findAll(){
         return this.educationUnitService.findAll();
     }
 
     @GetMapping("/{id}")
-    public EducationUnit findById(@PathVariable Long id){
+    public SpecificEducationUnitHelperFront findById(@PathVariable Long id){
         return this.educationUnitService.findById(id);
     }
 

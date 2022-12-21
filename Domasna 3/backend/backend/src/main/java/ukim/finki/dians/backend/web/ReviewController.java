@@ -1,0 +1,33 @@
+package ukim.finki.dians.backend.web;
+
+import org.springframework.web.bind.annotation.*;
+import ukim.finki.dians.backend.model.Review;
+import ukim.finki.dians.backend.service.EducationUnitService;
+import ukim.finki.dians.backend.service.ReviewService;
+
+import java.util.List;
+
+@CrossOrigin
+@RestController
+@RequestMapping("/review")
+public class ReviewController {
+
+    private final ReviewService reviewService;
+    private final EducationUnitService educationUnitService;
+
+    public ReviewController(ReviewService reviewService, EducationUnitService educationUnitService) {
+        this.reviewService = reviewService;
+        this.educationUnitService = educationUnitService;
+    }
+
+    @GetMapping("/findAll/{id}")
+    public List<Review> findAllByUnitId(@PathVariable Long id){
+        return educationUnitService.findAllReviews(id);
+    }
+
+    @PostMapping("/addReview/{id}")
+    public Review addReview(@RequestBody Review review,@PathVariable Long id){
+
+        return this.reviewService.save(review,id);
+    }
+}

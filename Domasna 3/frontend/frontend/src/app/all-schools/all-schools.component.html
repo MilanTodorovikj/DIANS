@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+            <img src="../../assets/logo_no_text.png" class="logoimg"/>
+            <span class="logotext">
+              МојаЕдукација
+            </span>
+          <!--          Сите институции за образование-->
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+           data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <ul class="list">
+
+            <!-- Dropdown for TYPE, Dropdown for CITY and Sorting -->
+            <div class="col-12">
+              <div class="col-lg-5 col-sm-12 sorting mx-1">
+                <mat-form-field appearance="fill" class="col-12">
+                  <mat-label>Одберете град</mat-label>
+                  <mat-select name="city"
+                              [ngModel]="educationUnitFilter"
+                              (ngModelChange)="onCityChange($event)">
+                    <mat-option *ngFor="let city of cities" [value]="city">
+                      {{city}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div class="col-lg-5 col-sm-12 sorting mx-1">
+                <mat-form-field appearance="fill" class="col-12">
+                  <mat-label>Одберете тип</mat-label>
+                  <mat-select name="type"
+                              [ngModel]="educationUnitFilter"
+                              (ngModelChange)="onTypeChange($event)">
+                    <mat-option *ngFor="let type of types" [value]="type[0]">
+                      {{type[1]}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div class="col-lg-1 col-sm-12 sorting">
+                <button mat-button color="primary"
+                        [ngModel]="educationUnitFilter"
+                        (click)="onSortChange()">
+                  <mat-icon>sort</mat-icon>
+                </button>
+              </div>
+            </div>
+
+            <li class="items" *ngFor="let item of displayData">
+              <a routerLink="/detail/{{item.id}}">
+                <div class="unit">
+                  <div class="unittext">
+
+                    <strong *ngIf="item.type.toLowerCase()=='school'">Училиште</strong>
+                    <strong *ngIf="item.type.toLowerCase()=='language_school'">Училиште за странски јазици</strong>
+                    <strong *ngIf="item.type.toLowerCase()=='library'">Библиотека</strong>
+                    <strong *ngIf="item.type.toLowerCase()=='kindergarten'">Градинка</strong>
+                    <strong *ngIf="item.type.toLowerCase()=='dormitory'">Студентски дом</strong>
+                    <strong *ngIf="item.type.toLowerCase()=='music_school'">Музичко училиште</strong>
+                    <strong *ngIf="item.type.toLowerCase()=='college'">Колеџ</strong>
+                    <strong *ngIf="item.type.toLowerCase()=='university'">Факултет</strong>
+
+                    -
+                    {{item.name}}, {{item.street}}, {{item.city}}<br/>
+                    {{item.phone}}
+                    <span *ngIf="item.website!=''">  <i *ngIf="item.phone"><br/></i>
+                      <a href="{{item.website}}">{{item.website}}</a>
+                    </span>
+
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <div class="text-center">
+            <input type="button" class="btn btn-primary loadbtn" (click)="showMore()" value="Прикажи повеќе"/>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
