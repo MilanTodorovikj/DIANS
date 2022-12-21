@@ -48,8 +48,7 @@ export class MapComponent implements AfterViewInit {
         (response) => {
           this.items = response;
           this.displayData = this.items.slice(0, length);
-          console.log(response);
-          for (let i = 0; i < this.displayData.length; i++) {
+          for (let i = 0; i < length; i++) {
             console.log(i);
 
             this.marker = new L.Marker([this.items[i].lat, this.items[i].lon], {
