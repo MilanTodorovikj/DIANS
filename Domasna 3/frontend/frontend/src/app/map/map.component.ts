@@ -4,6 +4,7 @@ import {LatLng} from "leaflet";
 import {ActivatedRoute} from "@angular/router";
 import {EducationUnitsService} from "../educationUnits.service";
 import {EducationUnit} from "../EducationUnit";
+import {EducationUnitFilter} from "../EducationUnitFilter";
 
 declare const L: any;
 
@@ -33,7 +34,7 @@ export class MapComponent implements AfterViewInit {
     zoom: 9
   }
 
-  private initMap(length: number = 10, lat: number = 41.6626, lon: number = 21.6541): void {
+  private initMap(length: number = 10,_filter: EducationUnitFilter , lat: number = 41.6626, lon: number = 21.6541): void {
 
     document.getElementById("preMap")!!.innerHTML = "<div id='map' style='width:100vw; height: 100vh;'></div>";
 
@@ -43,32 +44,30 @@ export class MapComponent implements AfterViewInit {
     let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 
     this.map.addLayer(layer);
+    this.unitService.getEducationUnisFiltered(_filter).subscribe(
+        (response) => {
+          this.items = response;
+          this.displayData = this.items.slice(0, 10);
+          console.log(response);
+          for (let i = 0; i < length; i++) {
+            console.log(i);
 
+            this.marker = new L.Marker([this.items[i].lat, this.items[i].lon], {
+              icon: new L.Icon({
+                iconSize: [50, 41],
+                iconAnchor: [13, 41],
+                iconUrl: '/assets/blue-marker.svg',
+              }),
+              title: 'Workspace'
+            });
+            this.marker.addTo(this.map);
 
-    this.unitService.getEducationUnits().subscribe(
-      (response) => {
-        this.items = response;
-        this.displayData = this.items.slice(0, 10);
-        console.log(response);
-        for (let i = 0; i < length; i++) {
-          console.log(i);
-
-          this.marker = new L.Marker([this.items[i].lat, this.items[i].lon], {
-            icon: new L.Icon({
-              iconSize: [50, 41],
-              iconAnchor: [13, 41],
-              iconUrl: '/assets/blue-marker.svg',
-            }),
-            title: 'Workspace'
-          });
-          this.marker.addTo(this.map);
-
+          }
+        },
+        (error) => {
+          console.log("Error Occurred: " + error);
         }
-      },
-      (error) => {
-        console.log("Error Occurred: " + error);
-      }
-    )
+      )
 
 
   }
@@ -98,8 +97,8 @@ export class MapComponent implements AfterViewInit {
   }
 
   // @ts-ignore
-  ngAfterViewInit(length: number): void {
-    this.initMap(length);
+  ngAfterViewInit(length: number,filter: EducationUnitFilter): void {
+    this.initMap(length,filter);
   }
 }
 
