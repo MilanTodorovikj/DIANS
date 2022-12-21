@@ -15,9 +15,46 @@
            data-bs-parent="#accordionExample">
         <div class="accordion-body">
           <ul class="list">
+
+            <!-- Dropdown for TYPE, Dropdown for CITY and Sorting -->
+            <div class="col-12">
+              <div class="col-lg-5 col-sm-12 sorting mx-1">
+                <mat-form-field appearance="fill" class="col-12">
+                  <mat-label>Одберете град</mat-label>
+                  <mat-select name="city"
+                              [ngModel]="educationUnitFilter"
+                              (ngModelChange)="onCityChange($event)">
+                    <mat-option *ngFor="let city of cities" [value]="city">
+                      {{city}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div class="col-lg-5 col-sm-12 sorting mx-1">
+                <mat-form-field appearance="fill" class="col-12">
+                  <mat-label>Одберете тип</mat-label>
+                  <mat-select name="type"
+                              [ngModel]="educationUnitFilter"
+                              (ngModelChange)="onTypeChange($event)">
+                    <mat-option *ngFor="let type of types" [value]="type[0]">
+                      {{type[1]}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div class="col-lg-1 col-sm-12 sorting">
+                <button mat-button color="primary"
+                        [ngModel]="educationUnitFilter"
+                        (click)="onSortChange()">
+                  <mat-icon>sort</mat-icon>
+                </button>
+              </div>
+            </div>
+
             <li class="items" *ngFor="let item of displayData">
-              <a routerLink="/detail/{{item.id}}"
-              >
+              <a routerLink="/detail/{{item.id}}">
                 <div class="unit">
                   <div class="unittext">
 
@@ -26,8 +63,8 @@
                     <strong *ngIf="item.type.toLowerCase()=='library'">Библиотека</strong>
                     <strong *ngIf="item.type.toLowerCase()=='kindergarten'">Градинка</strong>
                     <strong *ngIf="item.type.toLowerCase()=='dormitory'">Студентски дом</strong>
-                    <strong *ngIf="item.type.toLowerCase()=='music_school'">Музичко улилиште</strong>
-                    <strong *ngIf="item.type.toLowerCase()=='college'">Факултет</strong>
+                    <strong *ngIf="item.type.toLowerCase()=='music_school'">Музичко училиште</strong>
+                    <strong *ngIf="item.type.toLowerCase()=='college'">Колеџ</strong>
                     <strong *ngIf="item.type.toLowerCase()=='university'">Факултет</strong>
 
                     -

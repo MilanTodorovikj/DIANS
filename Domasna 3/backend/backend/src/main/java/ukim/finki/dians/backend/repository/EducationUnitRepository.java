@@ -18,8 +18,10 @@ public interface EducationUnitRepository extends JpaRepository<EducationUnit,Lon
     List<Review> getAllReviews(@Param("educationUnit") EducationUnit educationUnit);
 
     @Query("select eu from EducationUnit eu where" +
-            " lower(eu.type) like %:#{#educationUnitFilter.type.toLowerCase()}% " +
-            "and lower(eu.city) like %:#{#educationUnitFilter.city.toLowerCase()}%")
+            " (lower(eu.type) like %:#{#educationUnitFilter.type.toLowerCase()}% " +
+            "and :#{#educationUnitFilter.city.toLowerCase()} = '') " +
+            "or (lower(eu.type) like %:#{#educationUnitFilter.type.toLowerCase()}% and " +
+            "lower(eu.city) = :#{#educationUnitFilter.city.toLowerCase()})")
     List<EducationUnit> filter(@Param("educationUnitFilter") EducationUnitFilter educationUnitFilter);
 
 

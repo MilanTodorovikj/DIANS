@@ -7,4 +7,12 @@ public class EducationUnitFilter {
     String type;
     String city;
     Boolean sort;
+
+    public EducationUnitFilter(String city, String type,  Boolean sort) {
+        this.type = type;
+        this.city = city;
+        this.sort = sort;
+    }
 }
+
+

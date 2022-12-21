@@ -1,5 +1,8 @@
+// @ts-ignore
+
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import {MatButtonModule} from '@angular/material/button';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -14,6 +17,10 @@ import { HomeIconComponent } from './home-icon/home-icon.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import {MatIconModule} from '@angular/material/icon'
+
+import { WjInputModule } from '@grapecity/wijmo.angular2.input'
+import {MatSelectModule} from "@angular/material/select";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -31,7 +38,10 @@ import {MatIconModule} from '@angular/material/icon'
     LeafletModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
+    MatButtonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
