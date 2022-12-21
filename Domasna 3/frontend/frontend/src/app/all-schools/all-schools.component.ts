@@ -78,6 +78,7 @@ export class AllSchoolsComponent implements OnInit {
     this.educationUnitsService.getEducationUnisFiltered(this.educationUnitFilter).subscribe(
       (response) => {
         this.units = response;
+        // console.log(response);
         this.displayData = this.units.slice(0, 10);
         this.modal = this.displayData.at(0);
       },
