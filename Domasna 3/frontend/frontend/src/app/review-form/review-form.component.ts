@@ -10,28 +10,11 @@ import {ModalContentComponent} from "../modal-content/modal-content.component";
   styleUrls: ['./review-form.component.css']
 })
 export class ReviewFormComponent {
-  form: FormGroup;
 
   constructor(private fb: FormBuilder,private modalService: BsModalService) {
-    this.form = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      message: ['', Validators.required]
-    });
-  }
-
-  submit() {
-    if (this.form.valid) {
-      // Form is valid, do something with the form data
-      console.log("YES")
-    }
 
   }
 
-  test() {
-    console.log("mrs")
-
-  }
 
   modalRef?: BsModalRef;
   openModal() {

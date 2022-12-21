@@ -1,58 +1,90 @@
-<div >
+<form [formGroup]="form" class="form">
 
   <div class="modal-header">
-    <h4 class="modal-title"><b>Modal title</b></h4>
+    <h3 class="modal-title"><b>{{item?.name}}</b></h3>
+    <h4>{{item?.city}}</h4>
   </div>
   <div class="modal-body">
-    <h5>Школа</h5>
-    <hr/>
+    <h6>
+      <div *ngIf="item?.type"><b>Тип: </b>
+        <span *ngIf="item.type.toLowerCase()=='school'">Училиште</span>
+        <span *ngIf="item.type.toLowerCase()=='language_school'">Училиште за странски јазици</span>
+        <span *ngIf="item.type.toLowerCase()=='library'">Библиотека</span>
+        <span *ngIf="item.type.toLowerCase()=='kindergarten'">Градинка</span>
+        <span *ngIf="item.type.toLowerCase()=='dormitory'">Студентски дом</span>
+        <span *ngIf="item.type.toLowerCase()=='music_school'">Музичко училиште</span>
+        <span *ngIf="item.type.toLowerCase()=='college'">Колеџ</span>
+        <span *ngIf="item.type.toLowerCase()=='university'">Факултет</span>
+      </div>
+    </h6>
+    <!--    <hr/>-->
 
     <!-- ERROR MESSAGE -->
     <div id="error-message" class="alert alert-danger d-none"></div>
 
+    <!--    <div *ngIf="comment.invalid"-->
+    <!--         class="alert">-->
+    <!--      <div>-->
+    <!--        Коментарот е задолжителен и мора да е поголем од 10 карактери.-->
+    <!--      </div>-->
+
+    <!--    </div>-->
 
     <label for="rate">Оцена:</label>
     <div id="rate" class="form-group rating mb-3">
       <!-- FIFTH STAR -->
-      <input type="radio" id="star_5" name="rate" value="5"/>
+      <input type="radio" id="star_5" formControlName="rate" name="rate" value="5"/>
       <label for="star_5" title="Five">&#9733;</label>
       <!-- FOURTH STAR -->
-      <input type="radio" id="star_4" name="rate" value="4"/>
+      <input type="radio" id="star_4" formControlName="rate" name="rate" value="4"/>
       <label for="star_4" title="Four">&#9733;</label>
       <!-- THIRD STAR -->
-      <input type="radio" id="star_3" name="rate" value="3"/>
+      <input type="radio" id="star_3" formControlName="rate" name="rate" value="3"/>
       <label for="star_3" title="Three">&#9733;</label>
       <!-- SECOND STAR -->
-      <input type="radio" id="star_2" name="rate" value="2"/>
+      <input type="radio" id="star_2" formControlName="rate" name="rate" value="2"/>
       <label for="star_2" title="Two">&#9733;</label>
       <!-- FIRST STAR -->
-      <input type="radio" id="star_1" name="rate" value="1"/>
+      <input type="radio" id="star_1" formControlName="rate" name="rate" value="1"/>
       <label for="star_1" title="One">&#9733;</label>
     </div>
+
 
     <div class="form-group mb-3">
       <!-- Comment field -->
       <label for="comment">Коментар:</label>
-      <textarea class="form-control" id="comment" name="comment"></textarea>
+      <textarea class="form-control" id="comment" name="comment" placeholder="hehe" required
+                formControlName="comment"></textarea>
     </div>
+
+
     <div class="form-group mb-3">
       <!-- Name and surname fields -->
       <label for="name">Име и Презиме:</label>
-      <input type="text" class="form-control" id="name" name="name" placeholder="John Doe">
+      <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" formControlName="name"
+             required>
     </div>
+
+
     <div class="form-group mb-3">
       <!-- Email field -->
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" name="email">
+      <input type="email" class="form-control" id="email" name="email" placeholder="example@email.com"
+             formControlName="email" required>
     </div>
+
   </div>
+
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Close</button>
-    <button type="submit" class="btn btn-primary" id="submitReview" (click)="addReview()">Submit</button>
+    <button type="submit" [disabled]="!form.valid" class="btn btn-primary" id="submitReview" (click)="addReview()"
+            (click)="modalRef.hide()">
+      Submit
+    </button>
 
   </div>
 
-</div>
+</form>
 
 <script>
   // Get the form element

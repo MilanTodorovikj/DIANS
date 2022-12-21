@@ -55,7 +55,7 @@ export class MapComponent implements AfterViewInit {
 
           this.marker = new L.Marker([this.items[i].lat, this.items[i].lon], {
             icon: new L.Icon({
-              iconSize: [50, 41],
+              iconSize: [30, 25],
               iconAnchor: [13, 41],
               iconUrl: '/assets/blue-marker.svg',
             }),
