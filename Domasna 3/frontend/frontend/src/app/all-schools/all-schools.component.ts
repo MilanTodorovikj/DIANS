@@ -59,7 +59,7 @@ export class AllSchoolsComponent implements OnInit {
         console.log("Error Occurred: " + JSON.stringify(error));
       }
     )
-
+    this.mapComponent.ngAfterViewInit(10 as number,this.educationUnitFilter);
   }
 
   showMore() {
@@ -68,7 +68,7 @@ export class AllSchoolsComponent implements OnInit {
       newLength = this.units.length
     }
     this.displayData = this.units.slice(0, newLength);
-    this.mapComponent.ngAfterViewInit(newLength as number);
+    this.mapComponent.ngAfterViewInit(newLength as number,this.educationUnitFilter);
   }
 
   onCityChange(e: string) {
@@ -86,6 +86,13 @@ export class AllSchoolsComponent implements OnInit {
       }
     )
 
+    let length = this.displayData.length;
+    if (length > this.units.length) {
+      length = this.units.length
+    }
+    this.displayData = this.units.slice(0, length);
+    this.mapComponent.ngAfterViewInit(length as number,this.educationUnitFilter);
+
   }
 
   onTypeChange(e: string) {
@@ -102,6 +109,13 @@ export class AllSchoolsComponent implements OnInit {
         console.log("Error Occurred: " + error);
       }
     )
+
+    let length = this.displayData.length;
+    if (length > this.units.length) {
+      length = this.units.length
+    }
+    this.displayData = this.units.slice(0, length);
+    this.mapComponent.ngAfterViewInit(length as number,this.educationUnitFilter);
   }
 
   onSortChange() {
@@ -122,6 +136,13 @@ export class AllSchoolsComponent implements OnInit {
         console.log("Error Occurred: " + JSON.stringify(error));
       }
     )
+
+    let length = this.displayData.length;
+    if (length > this.units.length) {
+      length = this.units.length
+    }
+    this.displayData = this.units.slice(0, length);
+    this.mapComponent.ngAfterViewInit(length as number,this.educationUnitFilter);
   }
 
 
