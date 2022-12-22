@@ -17,10 +17,15 @@ import { HomeIconComponent } from './home-icon/home-icon.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import {MatIconModule} from '@angular/material/icon'
+import {FormsModule,ReactiveFormsModule} from "@angular/forms";
+import { ReviewFormComponent } from './review-form/review-form.component';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import {AccordionModule} from "ngx-bootstrap/accordion";
+import { ModalContentComponent } from './modal-content/modal-content.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { WjInputModule } from '@grapecity/wijmo.angular2.input'
 import {MatSelectModule} from "@angular/material/select";
-import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -30,7 +35,9 @@ import {FormsModule} from "@angular/forms";
     AllSchoolsComponent,
     SpecificSchoolComponent,
     ReviewsComponent,
-    HomeIconComponent
+    HomeIconComponent,
+    ReviewFormComponent,
+    ModalContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,13 @@ import {FormsModule} from "@angular/forms";
     MatIconModule,
     MatSelectModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    TooltipModule.forRoot(),
+    AccordionModule,
+    BrowserModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

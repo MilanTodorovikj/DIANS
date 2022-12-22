@@ -2,9 +2,8 @@ package ukim.finki.dians.backend.service;
 
 import ukim.finki.dians.backend.model.EducationUnit;
 import ukim.finki.dians.backend.model.Review;
-import ukim.finki.dians.backend.model.filter.EducationUnitFilter;
-import ukim.finki.dians.backend.model.helperFront.EducationUnitForListHelperFront;
-import ukim.finki.dians.backend.model.helperFront.SpecificEducationUnitHelperFront;
+import ukim.finki.dians.backend.model.helper.helperFront.EducationUnitForListHelperFront;
+import ukim.finki.dians.backend.model.helper.helperFront.SpecificEducationUnitHelperFront;
 
 import java.util.List;
 

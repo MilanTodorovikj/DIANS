@@ -2,9 +2,8 @@ package ukim.finki.dians.backend.web;
 
 import org.springframework.web.bind.annotation.*;
 import ukim.finki.dians.backend.model.EducationUnit;
-import ukim.finki.dians.backend.model.filter.EducationUnitFilter;
-import ukim.finki.dians.backend.model.helperFront.EducationUnitForListHelperFront;
-import ukim.finki.dians.backend.model.helperFront.SpecificEducationUnitHelperFront;
+import ukim.finki.dians.backend.model.helper.helperFront.EducationUnitForListHelperFront;
+import ukim.finki.dians.backend.model.helper.helperFront.SpecificEducationUnitHelperFront;
 import ukim.finki.dians.backend.service.EducationUnitService;
 import ukim.finki.dians.backend.service.impl.FillProperties;
 

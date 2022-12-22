@@ -2,8 +2,8 @@ package ukim.finki.dians.backend.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import ukim.finki.dians.backend.model.helperFront.EducationUnitForListHelperFront;
-import ukim.finki.dians.backend.model.helperFront.SpecificEducationUnitHelperFront;
+import ukim.finki.dians.backend.model.helper.helperFront.EducationUnitForListHelperFront;
+import ukim.finki.dians.backend.model.helper.helperFront.SpecificEducationUnitHelperFront;
 
 import java.util.ArrayList;
 import java.util.List;
