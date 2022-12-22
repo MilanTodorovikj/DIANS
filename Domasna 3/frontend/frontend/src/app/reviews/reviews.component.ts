@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ReviewsService} from "../reviews.service";
 import {Review} from "../Review";
 import {ActivatedRoute} from "@angular/router";
+import {ReloadService} from "../reload.service";
 
 @Component({
   selector: 'app-reviews',
@@ -11,7 +12,13 @@ import {ActivatedRoute} from "@angular/router";
 export class ReviewsComponent {
   id: number = 1;
   reviews: Review[] = [];
-  constructor(private route: ActivatedRoute, private reviewService: ReviewsService) {
+
+  constructor(private route: ActivatedRoute,
+              private reviewService: ReviewsService,
+              private reloadService: ReloadService) {
+    this.reloadService.reload$.subscribe(() => {
+      this.ngOnInit()
+    });
   }
 
   ngOnInit() {
@@ -23,8 +30,8 @@ export class ReviewsComponent {
     )
 
     this.reviewService.getReviews(this.id).subscribe(
-      (response) =>{
-        this.reviews=response;
+      (response) => {
+        this.reviews = response;
         // console.log(response);
       }
     )

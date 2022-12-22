@@ -4,6 +4,7 @@ import {EducationUnitsService} from "../educationUnits.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {ReloadService} from "../reload.service";
 
 @Component({
   selector: 'app-modal-content',
@@ -17,7 +18,8 @@ export class ModalContentComponent implements OnInit {
               private unitService: EducationUnitsService,
               private route: Router,
               private fb: FormBuilder,
-              private http: HttpClient) {
+              private http: HttpClient,
+              private reloadService: ReloadService) {
     this.form = this.fb.group({
       rate: ['', Validators.required],
       comment: ['', Validators.required],
@@ -53,7 +55,9 @@ export class ModalContentComponent implements OnInit {
       const formData = this.form.value;
       this.http.post('http://localhost:8080/review/addReview/' + this.a, formData).subscribe(response => {
 
-        window.location.reload();
+        // window.location.reload();
+        this.reloadService.reload();
+
       });
 
 
