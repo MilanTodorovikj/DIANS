@@ -142,4 +142,18 @@ strong {
   margin-top: -15px;
 }
 
+.accordion-body{
+  margin-top: -5px;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled){
+  margin-top: -12px;
+  height: 49px;
+}
+
+.sorting mat-form-field{
+  margin-top: -12px;
+  height: 49px;
+}
+
 
