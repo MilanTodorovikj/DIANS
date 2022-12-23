@@ -51,6 +51,18 @@ router-outlet + * {
   margin: 1.25rem auto 1.5rem auto;
 }
 
+.mat-mdc-form-field-subscript-wrapper{
+  display: none;
+}
+
+.accordion-body{
+  margin-top: -5px;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled){
+  margin-top: -12px;
+  height: 49px;
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
