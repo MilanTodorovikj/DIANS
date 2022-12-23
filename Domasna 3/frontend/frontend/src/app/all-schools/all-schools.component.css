@@ -7,6 +7,11 @@
   border-radius: 10px !important;
 }
 
+.container{
+  padding-right: calc(var(--bs-gutter-x) * 0.05);
+  padding-left: calc(var(--bs-gutter-x) * 0.95);
+}
+
 .accordion {
   border-radius: 10px;
   width: 100%;
