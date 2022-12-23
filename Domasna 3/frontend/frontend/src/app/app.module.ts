@@ -26,6 +26,11 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { WjInputModule } from '@grapecity/wijmo.angular2.input'
 import {MatSelectModule} from "@angular/material/select";
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { HeaderComponent } from './header/header.component';
+import { LoginButtonComponent } from './login-button/login-button.component';
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -38,6 +43,10 @@ import {MatSelectModule} from "@angular/material/select";
     HomeIconComponent,
     ReviewFormComponent,
     ModalContentComponent,
+    LoginComponent,
+    LogoutComponent,
+    HeaderComponent,
+    LoginButtonComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +63,8 @@ import {MatSelectModule} from "@angular/material/select";
     TooltipModule.forRoot(),
     AccordionModule,
     BrowserModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

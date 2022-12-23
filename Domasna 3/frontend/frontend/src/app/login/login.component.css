@@ -1,0 +1,23 @@
+.container{
+  padding-left: 7vw;
+}
+.form{
+  margin:auto;
+  width: 75vw;
+  height: 75vh;
+  background-color: #f3feff;
+  border-radius:50px;
+  padding-top: 15%;
+}
+img{
+  display: block;
+  margin:auto;
+  margin-bottom: 30px;
+}
+.form-row{
+  text-align: center;
+}
+.example-full-width{
+  width: 35%;
+}
+
