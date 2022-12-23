@@ -24,6 +24,13 @@ app-home-icon {
   z-index: 99999;
 }
 
+app-login-button{
+  position: absolute;
+  top: 48px;
+  left: 90%;
+  z-index: 99999;
+}
+
 
 .map-container {
   position: absolute;
