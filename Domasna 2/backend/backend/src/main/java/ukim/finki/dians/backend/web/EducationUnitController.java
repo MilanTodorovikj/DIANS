@@ -1,6 +1,7 @@
 package ukim.finki.dians.backend.web;
 
 import org.springframework.web.bind.annotation.*;
+import ukim.finki.dians.backend.model.EducationUnit;
 import ukim.finki.dians.backend.model.helperFront.EducationUnitForListHelperFront;
 import ukim.finki.dians.backend.model.helperFront.SpecificEducationUnitHelperFront;
 import ukim.finki.dians.backend.service.EducationUnitService;
@@ -38,14 +39,14 @@ public class EducationUnitController {
         return this.educationUnitService.findById(id);
     }
 
-    @GetMapping("/search/{searchInput}")
-    public List<EducationUnit> findByName (@PathVariable String searchInput){
-        List<EducationUnit> educationUnitList = new ArrayList<>();
-        for (EducationUnit educationUnit : educationUnitService.findAll()){
-            if (educationUnit.getName().contains(searchInput)){
-                educationUnitList.add(educationUnit);
-            }
-        }
-        return educationUnitList;
-    }
+//    @GetMapping("/search/{searchInput}")
+//    public List<EducationUnit> findByName (@PathVariable String searchInput){
+//        List<EducationUnit> educationUnitList = new ArrayList<>();
+//        for (EducationUnit educationUnit : educationUnitService.findAll()){
+//            if (educationUnit.getName().contains(searchInput)){
+//                educationUnitList.add(educationUnit);
+//            }
+//        }
+//        return educationUnitList;
+//    }
 }

@@ -47,6 +47,17 @@
       <div *ngIf="item?.website"><span class="btn btn-primary loadbtn"><a href="{{item?.website}}"><b>Посети вебсајт</b></a></span>
       </div>
     </div>
+
+    <div>
+      <button mat-fab color="primary" style="width: 35px; height: 35px; margin-right: 10px" (click)="editSchool(item.id)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-fab color="warn" style="width: 35px; height: 35px" (click)="deleteSchool(item.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+
+    </div>
+
   </div>
   <div class="comments overflow-auto">
 

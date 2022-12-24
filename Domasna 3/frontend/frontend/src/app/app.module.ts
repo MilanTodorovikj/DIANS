@@ -20,7 +20,10 @@ import {MatIconModule} from '@angular/material/icon'
 
 import { WjInputModule } from '@grapecity/wijmo.angular2.input'
 import {MatSelectModule} from "@angular/material/select";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CreateSchoolPopupComponent} from "./all-schools/create-school-popup/create-school-popup.component";
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import {FormsModule} from "@angular/forms";
     AllSchoolsComponent,
     SpecificSchoolComponent,
     ReviewsComponent,
-    HomeIconComponent
+    HomeIconComponent,
+    CreateSchoolPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,10 @@ import {FormsModule} from "@angular/forms";
     MatIconModule,
     MatSelectModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
