@@ -32,7 +32,8 @@
         <span *ngIf="item.type.toLowerCase()=='dormitory'">Студентски дом</span>
         <span *ngIf="item.type.toLowerCase()=='music_school'">Музичко улилиште</span>
         <span *ngIf="item.type.toLowerCase()=='college'">Факултет</span>
-        <span *ngIf="item.type.toLowerCase()=='university'">Факултет</span></div>
+        <span *ngIf="item.type.toLowerCase()=='university'">Факултет</span>
+      </div>
     </div>
     <div class="mb-3">
       <div *ngIf="item?.street"><b>Адреса: </b> <span>{{item?.street}}</span></div>
@@ -61,7 +62,9 @@
   </div>
   <div class="comments overflow-auto">
 
-    <h4><b>Коментари</b></h4>
+    <h4 style="display: flex;justify-content: space-around"><b>Коментари</b>
+      <app-review-form></app-review-form>
+    </h4>
     <app-reviews></app-reviews>
 
 

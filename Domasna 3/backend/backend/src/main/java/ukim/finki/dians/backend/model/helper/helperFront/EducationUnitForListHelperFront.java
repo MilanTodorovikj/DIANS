@@ -1,11 +1,11 @@
-package ukim.finki.dians.backend.model.helperFront;
+package ukim.finki.dians.backend.model.helper.helperFront;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
 @Component
 @Data
-public class SpecificEducationUnitHelperFront {
+public class EducationUnitForListHelperFront {
     private Long id;
     private String name;
     private String city;
@@ -15,9 +15,7 @@ public class SpecificEducationUnitHelperFront {
     private String website;
     private Double lat;
     private Double lon;
-    private Double reviewAverage;
 
-    public SpecificEducationUnitHelperFront() {
+    public EducationUnitForListHelperFront() {
     }
-
 }

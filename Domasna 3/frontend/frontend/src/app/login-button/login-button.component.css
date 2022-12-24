@@ -1,0 +1,11 @@
+.loginButton{
+  display: inline-block;
+  width:77px;
+  height: 24px;
+  background-color: darkblue;
+  text-decoration: none;
+  color:white;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: bold;
+}

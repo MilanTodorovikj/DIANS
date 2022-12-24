@@ -1,0 +1,2 @@
+<a routerLink="/login" *ngIf="!loginService.isUserLoggedIn()" class="loginButton">Login</a>
+<a routerLink="/logout" *ngIf="loginService.isUserLoggedIn()" class="loginButton">Log out</a>

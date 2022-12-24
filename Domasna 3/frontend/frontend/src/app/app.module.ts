@@ -17,10 +17,20 @@ import { HomeIconComponent } from './home-icon/home-icon.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import {MatIconModule} from '@angular/material/icon'
+import {FormsModule,ReactiveFormsModule} from "@angular/forms";
+import { ReviewFormComponent } from './review-form/review-form.component';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import {AccordionModule} from "ngx-bootstrap/accordion";
+import { ModalContentComponent } from './modal-content/modal-content.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { WjInputModule } from '@grapecity/wijmo.angular2.input'
 import {MatSelectModule} from "@angular/material/select";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { HeaderComponent } from './header/header.component';
+import { LoginButtonComponent } from './login-button/login-button.component';
+import {MatInputModule} from "@angular/material/input";
 import {CreateSchoolPopupComponent} from "./all-schools/create-school-popup/create-school-popup.component";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
@@ -34,7 +44,14 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     SpecificSchoolComponent,
     ReviewsComponent,
     HomeIconComponent,
-    CreateSchoolPopupComponent
+    CreateSchoolPopupComponent,
+    HomeIconComponent,
+    ReviewFormComponent,
+    ModalContentComponent,
+    LoginComponent,
+    LogoutComponent,
+    HeaderComponent,
+    LoginButtonComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +65,15 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     FormsModule,
     MatDialogModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FormsModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    TooltipModule.forRoot(),
+    AccordionModule,
+    BrowserModule,
+    ModalModule.forRoot(),
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

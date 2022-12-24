@@ -6,8 +6,8 @@ import ukim.finki.dians.backend.model.EducationUnit;
 import ukim.finki.dians.backend.model.Review;
 import ukim.finki.dians.backend.model.exceptions.EducationUnitNotFound;
 import ukim.finki.dians.backend.model.filter.EducationUnitFilter;
-import ukim.finki.dians.backend.model.helperFront.EducationUnitForListHelperFront;
-import ukim.finki.dians.backend.model.helperFront.SpecificEducationUnitHelperFront;
+import ukim.finki.dians.backend.model.helper.helperFront.EducationUnitForListHelperFront;
+import ukim.finki.dians.backend.model.helper.helperFront.SpecificEducationUnitHelperFront;
 import ukim.finki.dians.backend.repository.EducationUnitRepository;
 import ukim.finki.dians.backend.service.EducationUnitService;
 
@@ -87,7 +87,7 @@ public class EducationUnitServiceImpl implements EducationUnitService {
 
     @Override
     public List<EducationUnit> search(String term) {
-        return this.educationUnitRepository.findAllByNameContaining(term);
+        return this.educationUnitRepository.findAllByNameContainingIgnoreCase(term);
     }
 
 
