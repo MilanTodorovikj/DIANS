@@ -87,7 +87,7 @@ public class EducationUnitServiceImpl implements EducationUnitService {
 
     @Override
     public List<EducationUnit> search(String term) {
-        return this.educationUnitRepository.findAllByNameContaining(term);
+        return this.educationUnitRepository.findAllByNameContainingIgnoreCase(term);
     }
 
 

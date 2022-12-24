@@ -25,5 +25,5 @@ public interface EducationUnitRepository extends JpaRepository<EducationUnit,Lon
     List<EducationUnit> filter(@Param("educationUnitFilter") EducationUnitFilter educationUnitFilter);
 
 
-    List<EducationUnit> findAllByNameContaining(String term);
+    List<EducationUnit> findAllByNameContainingIgnoreCase(String term);
 }
