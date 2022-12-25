@@ -13,11 +13,11 @@ label {
 
 input {
   width: 100%;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
   box-sizing: border-box;
   border: 2px solid #ccc;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 1.3rem !important;
 }
 select{
   width: 100%;
@@ -36,3 +36,12 @@ select{
 .dropdown-type{
   width: 100%;
 }
+
+tr{
+  text-align: center;
+}
+
+tr .mat-mdc-form-field{
+  width: 100% !important;
+}
+
