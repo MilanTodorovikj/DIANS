@@ -15,6 +15,21 @@ export class EducationUnitsService {
   urlAll: string = "http://localhost:8080/educationUnit/all";
   urlSpecific: string = "http://localhost:8080/educationUnit/";
   urlFiltered: string = "http://localhost:8080/educationUnit/filter";
+  urlAdd: string = "http://localhost:8080/educationUnit/addNew";
+  urlDelete: string = "http://localhost:8080/educationUnit/delete/";
+  urlEdit: string = "http://localhost:8080/educationUnit/edit/";
+
+  addEducationUnit(unit: EducationUnit) {
+    return this.http.post(this.urlAdd, unit);
+  }
+
+  deleteEducationUnit(id: number) {
+    return this.http.delete(this.urlDelete + id);
+  }
+
+  editEducationUnit(unit: EducationUnit, id: number) {
+    return this.http.put(this.urlEdit + id, unit);
+  }
 
   getEducationUnits() {
     return this.http.get<EducationUnit[]>(this.urlAll);

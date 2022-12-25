@@ -3,6 +3,9 @@ import {ActivatedRoute} from "@angular/router";
 import {EducationUnitsService} from "../educationUnits.service";
 import * as Leaflet from "leaflet";
 import {MapComponent} from "../map/map.component";
+import {MatDialog} from "@angular/material/dialog";
+import {CreateSchoolPopupComponent} from "../all-schools/create-school-popup/create-school-popup.component";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-specific-school',
@@ -14,12 +17,14 @@ import {MapComponent} from "../map/map.component";
 export class SpecificSchoolComponent {
   constructor(private route: ActivatedRoute,
               private unitService: EducationUnitsService,
-              private mapComponent: MapComponent) {
+              private mapComponent: MapComponent,
+              private dialog: MatDialog,
+              private snackBar: MatSnackBar) {
   }
 
 
   a: number = 1;
-  numbers = [1,2,3,4,5]
+  numbers = [1, 2, 3, 4, 5]
 
   item: any;
 
@@ -53,5 +58,27 @@ export class SpecificSchoolComponent {
 
   goHome() {
     window.location.replace("/all");
+  }
+
+  deleteSchool(id: number) {
+    this.unitService.deleteEducationUnit(id).subscribe(res => {
+      console.log(res);
+      this.goHome();
+    })
+  }
+
+  editSchool(id: number) {
+    const dialogRef = this.dialog.open(CreateSchoolPopupComponent, {
+      data: this.item
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      if (res !== undefined) {
+        this.unitService.editEducationUnit(res, id).subscribe(r => {
+          const nextUrl = "/detail/"+(++id);
+          window.location.assign(nextUrl);
+          this.snackBar.open("Ажурирањето е успешно направено", 'close');
+        })
+      }
+    })
   }
 }

@@ -44,19 +44,25 @@
               </mat-form-field>
             </div>
 
-            <div class="col-lg-1 col-sm-12 sorting">
-              <button mat-button color="primary"
-                      [ngModel]="educationUnitFilter"
-                      (click)="onSortChange()">
-                <mat-icon>sort</mat-icon>
-              </button>
-            </div>
-          </div>
+              <div class="col-lg-1 col-sm-12 sorting">
+                <button mat-button color="primary"
+                        [ngModel]="educationUnitFilter"
+                        (click)="onSortChange()">
+                  <mat-icon>sort</mat-icon>
+                </button>
+              </div>
 
-          <li class="items" *ngFor="let item of displayData">
-            <a routerLink="/detail/{{item.id}}">
-              <div class="unit">
-                <div class="unittext">
+              <div class="text-center">
+                <input type="button" class="btn btn-primary " (click)="addUnit()" value="Додади образовна институција"/>
+              </div>
+
+            </div>
+
+            <br>
+            <li class="items" *ngFor="let item of displayData">
+              <a routerLink="/detail/{{item.id}}">
+                <div class="unit">
+                  <div class="unittext">
 
                   <strong *ngIf="item.type.toLowerCase()=='school'">Училиште</strong>
                   <strong *ngIf="item.type.toLowerCase()=='language_school'">Училиште за странски јазици</strong>

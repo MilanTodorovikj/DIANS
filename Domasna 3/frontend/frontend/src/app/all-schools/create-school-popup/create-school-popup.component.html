@@ -1,0 +1,72 @@
+<form [formGroup]="schoolForm" style="margin: 20px">
+  <table>
+    <tr>
+      <td><label for="name">Име: </label></td>
+      <td><input id="name" type="text" formControlName="name" required="true"></td>
+
+    </tr>
+    <tr>
+      <td><label for="city">Град:</label></td>
+      <td>
+        <mat-form-field class="dropdown-city" appearance="fill">
+          <mat-select [formControl]="schoolForm.controls.city">
+            <mat-option id="city" *ngFor="let city of cities" [value]="city">
+              {{city}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="street">Улица:</label></td>
+      <td><input id="street" type="text" formControlName="street" required="true"></td>
+    </tr>
+    <tr>
+      <td><label for="type">Тип:</label></td>
+      <td>
+        <mat-form-field class="dropdown-type" appearance="fill">
+          <mat-select id="type" name="type" [formControl]="schoolForm.controls.type">
+            <mat-option *ngFor="let type of types" [value]="type[0]">
+              {{type[1]}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+
+    </tr>
+    <tr>
+      <td><label for="phone">Телефон:</label></td>
+      <td><input id="phone" type="tel" formControlName="phone" value="+389"></td>
+
+
+    </tr>
+    <tr>
+      <td><label for="website">Веб-страница:</label></td>
+      <td><input id="website" type="text" formControlName="website"></td>
+
+    </tr>
+    <tr>
+
+      <td><label for="lat">Географска ширина:</label></td>
+      <td><input id="lat" type="number" formControlName="lat" required="true"></td>
+
+    </tr>
+    <tr>
+      <td><label for="lon">Географска должина:</label></td>
+      <td><input id="lon" type="number" formControlName="lon" required="true"></td>
+
+    </tr>
+    <tr>
+      <td colspan="2">
+        <button *ngIf="data === null || data === undefined" type="button" class="btn btn-primary" style="width: 100%"
+                [mat-dialog-close]="schoolForm.value">Додади
+        </button>
+        <button *ngIf="data !== null" type="button" class="btn btn-primary" style="width: 100%"
+                [mat-dialog-close]="schoolForm.value">Ажурирај
+        </button>
+      </td>
+    </tr>
+
+  </table>
+
+</form>

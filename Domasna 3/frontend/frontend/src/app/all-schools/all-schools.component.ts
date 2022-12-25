@@ -3,6 +3,10 @@ import {EducationUnitsService} from "../educationUnits.service";
 import {EducationUnit} from "../EducationUnit";
 import {MapComponent} from "../map/map.component";
 import {EducationUnitFilter} from "../EducationUnitFilter";
+import {MatDialog} from "@angular/material/dialog";
+import {CreateSchoolPopupComponent} from "./create-school-popup/create-school-popup.component";
+import {lastValueFrom} from "rxjs";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-all-schools',
@@ -34,7 +38,10 @@ export class AllSchoolsComponent implements OnInit {
   ];
 
 
-  constructor(private educationUnitsService: EducationUnitsService, private mapComponent: MapComponent) {
+  constructor(private educationUnitsService: EducationUnitsService,
+              private mapComponent: MapComponent,
+              private dialog: MatDialog,
+              private snackBar: MatSnackBar) {
   }
 
   units: EducationUnit[] = [];
@@ -146,5 +153,17 @@ export class AllSchoolsComponent implements OnInit {
     this.mapComponent.ngAfterViewInit(length as number, this.educationUnitFilter,false);
   }
 
+  addUnit() {
+    let dialogRef = this.dialog.open(CreateSchoolPopupComponent, {
+
+    }).afterClosed();
+
+    dialogRef.subscribe(r => {
+      this.educationUnitsService.addEducationUnit(r).subscribe(added => {
+        console.log(added);
+        this.snackBar.open("Успешно додадовте образовна установа.", 'Close');
+      });
+    })
+  }
 
 }

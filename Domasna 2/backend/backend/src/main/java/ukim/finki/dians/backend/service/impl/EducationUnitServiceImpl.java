@@ -10,6 +10,7 @@ import ukim.finki.dians.backend.repository.EducationUnitRepository;
 import ukim.finki.dians.backend.service.EducationUnitService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EducationUnitServiceImpl implements EducationUnitService {
@@ -36,6 +37,11 @@ public class EducationUnitServiceImpl implements EducationUnitService {
         if(educationUnitRepository.findById(id).isEmpty())
             throw new EducationUnitNotFound(id);
         return educationUnitRepository.findById(id).get().getAsSpecificEducationUnitHelperFront();
+    }
+
+    @Override
+    public Optional<EducationUnit> findByName(String name){
+        return educationUnitRepository.findByName(name);
     }
 
     @Override

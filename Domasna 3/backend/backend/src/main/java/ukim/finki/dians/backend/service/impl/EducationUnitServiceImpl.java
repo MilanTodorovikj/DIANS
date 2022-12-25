@@ -36,14 +36,14 @@ public class EducationUnitServiceImpl implements EducationUnitService {
 
     @Override
     public SpecificEducationUnitHelperFront findForFrontById(Long id) {
-        if(educationUnitRepository.findById(id).isEmpty())
+        if (educationUnitRepository.findById(id).isEmpty())
             throw new EducationUnitNotFound(id);
         return educationUnitRepository.findById(id).get().getAsSpecificEducationUnitHelperFront();
     }
 
     @Override
     public List<Review> findAllReviews(Long id) {
-        if(this.educationUnitRepository.findById(id).isEmpty())
+        if (this.educationUnitRepository.findById(id).isEmpty())
             throw new EducationUnitNotFound(id);
         EducationUnit educationUnit = this.educationUnitRepository.findById(id).get();
         return educationUnitRepository.getAllReviews(educationUnit);
@@ -56,15 +56,15 @@ public class EducationUnitServiceImpl implements EducationUnitService {
 
     @Override
     public void deleteById(Long id) {
-        if(educationUnitRepository.findById(id).isEmpty())
+        if (educationUnitRepository.findById(id).isEmpty())
             throw new EducationUnitNotFound(id);
         this.educationUnitRepository.deleteById(id);
     }
 
     @Override
     @Transactional
-    public EducationUnit editById(Long id,EducationUnit educationUnit) {
-        if(this.educationUnitRepository.findById(id).isEmpty())
+    public EducationUnit editById(Long id, EducationUnit educationUnit) {
+        if (this.educationUnitRepository.findById(id).isEmpty())
             throw new EducationUnitNotFound(id);
         this.educationUnitRepository.deleteById(id);
         return this.educationUnitRepository.save(educationUnit);
@@ -74,15 +74,15 @@ public class EducationUnitServiceImpl implements EducationUnitService {
     public List<SpecificEducationUnitHelperFront> filter(String city, String type, Boolean sort) {
         EducationUnitFilter educationUnitFilter = new EducationUnitFilter(city, type, sort);
 
-        if(educationUnitFilter.getSort())
-            return this.educationUnitRepository.filter(educationUnitFilter).stream().map(eu->eu.getAsSpecificEducationUnitHelperFront()).sorted(Comparator.comparing(SpecificEducationUnitHelperFront::getReviewAverage).reversed()).toList();
+        if (educationUnitFilter.getSort())
+            return this.educationUnitRepository.filter(educationUnitFilter).stream().map(EducationUnit::getAsSpecificEducationUnitHelperFront).sorted(Comparator.comparing(SpecificEducationUnitHelperFront::getReviewAverage).reversed()).toList();
         else
-            return this.educationUnitRepository.filter(educationUnitFilter).stream().map(eu->eu.getAsSpecificEducationUnitHelperFront()).sorted(Comparator.comparing(SpecificEducationUnitHelperFront::getReviewAverage)).toList();
+            return this.educationUnitRepository.filter(educationUnitFilter).stream().map(EducationUnit::getAsSpecificEducationUnitHelperFront).sorted(Comparator.comparing(SpecificEducationUnitHelperFront::getReviewAverage)).toList();
     }
 
     @Override
     public EducationUnit findById(Long id) {
-        return this.educationUnitRepository.findById(id).orElseThrow(()->new EducationUnitNotFound(id));
+        return this.educationUnitRepository.findById(id).orElseThrow(() -> new EducationUnitNotFound(id));
     }
 
     @Override

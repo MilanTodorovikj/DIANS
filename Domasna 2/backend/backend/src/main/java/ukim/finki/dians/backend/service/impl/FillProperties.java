@@ -25,6 +25,5 @@ public class FillProperties {
 
             educationUnitService.save(parts[0],parts[1],parts[2],parts[3],parts[4],parts[5],Double.parseDouble(parts[6]),Double.parseDouble(parts[7]));
         }
-
     }
 }
