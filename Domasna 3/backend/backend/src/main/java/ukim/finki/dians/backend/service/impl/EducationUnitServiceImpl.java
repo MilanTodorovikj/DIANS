@@ -66,8 +66,16 @@ public class EducationUnitServiceImpl implements EducationUnitService {
     public EducationUnit editById(Long id, EducationUnit educationUnit) {
         if (this.educationUnitRepository.findById(id).isEmpty())
             throw new EducationUnitNotFound(id);
-        this.educationUnitRepository.deleteById(id);
-        return this.educationUnitRepository.save(educationUnit);
+        EducationUnit eu = this.educationUnitRepository.findById(id).get();
+        eu.setName(educationUnit.getName());
+        eu.setCity(educationUnit.getCity());
+        eu.setStreet(educationUnit.getStreet());
+        eu.setType(educationUnit.getType());
+        eu.setPhone(educationUnit.getPhone());
+        eu.setWebsite(educationUnit.getWebsite());
+        eu.setLat(educationUnit.getLat());
+        eu.setLon(educationUnit.getLon());
+        return this.educationUnitRepository.save(eu);
     }
 
     @Override

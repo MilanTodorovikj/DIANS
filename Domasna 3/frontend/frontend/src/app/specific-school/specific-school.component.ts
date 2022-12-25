@@ -82,7 +82,7 @@ export class SpecificSchoolComponent {
       dialogRef.afterClosed().subscribe(res => {
         if (res !== undefined) {
           this.unitService.editEducationUnit(res, id).subscribe(r => {
-            const nextUrl = "/detail/" + (++id);
+            const nextUrl = "/detail/" + (id);
             window.location.assign(nextUrl);
             this.snackBar.open("Ажурирањето е успешно направено", 'close');
           })
