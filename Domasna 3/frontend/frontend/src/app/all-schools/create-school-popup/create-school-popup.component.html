@@ -1,61 +1,101 @@
-<form [formGroup]="schoolForm" style="margin: 20px">
+<form [formGroup]="schoolForm" style="margin: 20px" class="example-form">
   <table>
     <tr>
-      <td><label for="name">Име: </label></td>
-      <td><input id="name" type="text" formControlName="name" required="true"></td>
-
+<!--      <td><label for="name">Име: </label></td>-->
+<!--      <td><input id="name" type="text" formControlName="name" required="true"></td>-->
+      <mat-form-field class="example-full-width">
+        <mat-label for="name">Име</mat-label>
+        <input matInput id="name" type="text" formControlName="name" required="true">
+      </mat-form-field>
     </tr>
+
     <tr>
-      <td><label for="city">Град:</label></td>
-      <td>
-        <mat-form-field class="dropdown-city" appearance="fill">
-          <mat-select [formControl]="schoolForm.controls.city">
-            <mat-option id="city" *ngFor="let city of cities" [value]="city">
-              {{city}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </td>
+<!--      <td><label for="city">Град:</label></td>-->
+<!--      <td>-->
+<!--        <mat-form-field class="dropdown-city" appearance="fill">-->
+<!--          <mat-select [formControl]="schoolForm.controls.city">-->
+<!--            <mat-option id="city" *ngFor="let city of cities" [value]="city">-->
+<!--              {{city}}-->
+<!--            </mat-option>-->
+<!--          </mat-select>-->
+<!--        </mat-form-field>-->
+<!--      </td>-->
+          <mat-form-field appearance="fill">
+            <mat-label for="city">Град</mat-label>
+            <mat-select [formControl]="schoolForm.controls.city"  id="city" name="city">
+              <mat-option *ngFor="let city of cities" [value]="city">
+                {{city}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
     </tr>
+
     <tr>
-      <td><label for="street">Улица:</label></td>
-      <td><input id="street" type="text" formControlName="street" required="true"></td>
+<!--      <td><label for="street">Улица:</label></td>-->
+<!--      <td><input id="street" type="text" formControlName="street" required="true"></td>-->
+      <mat-form-field class="example-full-width">
+        <mat-label for="street">Улица</mat-label>
+        <input matInput id="street" type="text" formControlName="street" required="true">
+      </mat-form-field>
     </tr>
+
     <tr>
-      <td><label for="type">Тип:</label></td>
-      <td>
-        <mat-form-field class="dropdown-type" appearance="fill">
-          <mat-select id="type" name="type" [formControl]="schoolForm.controls.type">
-            <mat-option *ngFor="let type of types" [value]="type[0]">
-              {{type[1]}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </td>
-
+<!--      <td><mat-label for="type">Тип:</mat-label></td>-->
+<!--      <td>-->
+<!--        <mat-form-field class="dropdown-type" appearance="fill">-->
+<!--          <mat-select id="type" name="type" [formControl]="schoolForm.controls.type">-->
+<!--            <mat-option *ngFor="let type of types" [value]="type[0]">-->
+<!--              {{type[1]}}-->
+<!--            </mat-option>-->
+<!--          </mat-select>-->
+<!--        </mat-form-field>-->
+<!--      </td>-->
+          <mat-form-field appearance="fill">
+            <mat-label for="type">Тип</mat-label>
+            <mat-select id="type" name="type" [formControl]="schoolForm.controls.type">
+              <mat-option *ngFor="let type of types" [value]="type[0]">
+                {{type[1]}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
     </tr>
+
     <tr>
-      <td><label for="phone">Телефон:</label></td>
-      <td><input id="phone" type="tel" formControlName="phone" value="+389"></td>
-
-
+<!--      <td><label for="phone">Телефон:</label></td>-->
+<!--      <td><input id="phone" type="tel" formControlName="phone" value="+389"></td>-->
+      <mat-form-field class="example-full-width">
+        <mat-label for="phone">Телефон</mat-label>
+        <input matInput id="phone" type="text" formControlName="phone">
+      </mat-form-field>
     </tr>
+
     <tr>
-      <td><label for="website">Веб-страница:</label></td>
-      <td><input id="website" type="text" formControlName="website"></td>
-
+<!--      <td><label for="website">Веб-страница:</label></td>-->
+<!--      <td><input id="website" type="text" formControlName="website"></td>-->
+      <mat-form-field class="example-full-width">
+        <mat-label for="website">Веб-страница</mat-label>
+        <input matInput id="website" type="text" formControlName="website">
+      </mat-form-field>
     </tr>
+
     <tr>
-
-      <td><label for="lat">Географска ширина:</label></td>
-      <td><input id="lat" type="number" formControlName="lat" required="true"></td>
-
+<!--      <td><label for="lat">Географска ширина:</label></td>-->
+<!--      <td><input id="lat" type="number" formControlName="lat" required="true"></td>-->
+      <mat-form-field class="example-full-width">
+        <mat-label for="lat">Географска ширина</mat-label>
+        <input matInput id="lat" type="number" formControlName="lat" required="true">
+      </mat-form-field>
     </tr>
+
     <tr>
-      <td><label for="lon">Географска должина:</label></td>
-      <td><input id="lon" type="number" formControlName="lon" required="true"></td>
-
+<!--      <td><label for="lon">Географска должина:</label></td>-->
+<!--      <td><input id="lon" type="number" formControlName="lon" required="true"></td>-->
+      <mat-form-field class="example-full-width">
+        <mat-label for="lon">Географска должина</mat-label>
+        <input matInput id="lon" type="number" formControlName="lon" required="true">
+      </mat-form-field>
     </tr>
+
     <tr>
       <td colspan="2">
         <button *ngIf="data === null || data === undefined" type="button" class="btn btn-primary" style="width: 100%"
