@@ -13,49 +13,50 @@
       </span>
       <div class="accordion-body">
 
+        <div class="col-12">
+          <div class="col-lg-5 col-sm-12 sorting mx-1">
+            <mat-form-field appearance="fill" class="col-12">
+              <mat-label>Град</mat-label>
+              <mat-select name="city"
+                          [ngModel]="educationUnitFilter"
+                          (ngModelChange)="onCityChange($event)">
+                <mat-option *ngFor="let city of cities" [value]="city">
+                  {{city}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col-lg-5 col-sm-12 sorting mx-1">
+            <mat-form-field appearance="fill" class="col-12">
+              <mat-label>Тип</mat-label>
+              <mat-select name="type"
+                          [ngModel]="educationUnitFilter"
+                          (ngModelChange)="onTypeChange($event)">
+                <mat-option *ngFor="let type of types" [value]="type[0]">
+                  {{type[1]}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col-lg-1 col-sm-12 sorting">
+            <button mat-button color="primary"
+                    [ngModel]="educationUnitFilter"
+                    (click)="onSortChange()">
+              <mat-icon>sort</mat-icon>
+            </button>
+          </div>
+
+
+        </div>
+
+        <br>
 
         <ul class="list">
 
           <!-- Dropdown for TYPE, Dropdown for CITY and Sorting -->
-          <div class="col-12">
-            <div class="col-lg-5 col-sm-12 sorting mx-1">
-              <mat-form-field appearance="fill" class="col-12">
-                <mat-label>Град</mat-label>
-                <mat-select name="city"
-                            [ngModel]="educationUnitFilter"
-                            (ngModelChange)="onCityChange($event)">
-                  <mat-option *ngFor="let city of cities" [value]="city">
-                    {{city}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
 
-            <div class="col-lg-5 col-sm-12 sorting mx-1">
-              <mat-form-field appearance="fill" class="col-12">
-                <mat-label>Тип</mat-label>
-                <mat-select name="type"
-                            [ngModel]="educationUnitFilter"
-                            (ngModelChange)="onTypeChange($event)">
-                  <mat-option *ngFor="let type of types" [value]="type[0]">
-                    {{type[1]}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-
-              <div class="col-lg-1 col-sm-12 sorting">
-                <button mat-button color="primary"
-                        [ngModel]="educationUnitFilter"
-                        (click)="onSortChange()">
-                  <mat-icon>sort</mat-icon>
-                </button>
-              </div>
-
-
-            </div>
-
-            <br>
             <li class="items" *ngFor="let item of displayData">
               <a routerLink="/detail/{{item.id}}">
                 <div class="unit">
