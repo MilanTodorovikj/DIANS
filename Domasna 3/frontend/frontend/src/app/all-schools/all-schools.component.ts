@@ -7,6 +7,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {CreateSchoolPopupComponent} from "./create-school-popup/create-school-popup.component";
 import {lastValueFrom} from "rxjs";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {AuthenticationService} from "../authentication.service";
 
 @Component({
   selector: 'app-all-schools',
@@ -41,7 +42,8 @@ export class AllSchoolsComponent implements OnInit {
   constructor(private educationUnitsService: EducationUnitsService,
               private mapComponent: MapComponent,
               private dialog: MatDialog,
-              private snackBar: MatSnackBar) {
+              private snackBar: MatSnackBar,
+              private loginService: AuthenticationService) {
   }
 
   units: EducationUnit[] = [];
@@ -55,7 +57,9 @@ export class AllSchoolsComponent implements OnInit {
 
   modal: any;
 
+  loggedIn=false;
   ngOnInit(): void {
+    this.loggedIn=this.loginService.isUserLoggedIn()
     this.educationUnitsService.getEducationUnits().subscribe(
       (response) => {
         this.units = response;
@@ -154,16 +158,16 @@ export class AllSchoolsComponent implements OnInit {
   }
 
   addUnit() {
-    let dialogRef = this.dialog.open(CreateSchoolPopupComponent, {
+    if(this.loginService.isUserLoggedIn()) {
+      let dialogRef = this.dialog.open(CreateSchoolPopupComponent, {}).afterClosed();
 
-    }).afterClosed();
-
-    dialogRef.subscribe(r => {
-      this.educationUnitsService.addEducationUnit(r).subscribe(added => {
-        console.log(added);
-        this.snackBar.open("Успешно додадовте образовна установа.", 'Close');
-      });
-    })
+      dialogRef.subscribe(r => {
+        this.educationUnitsService.addEducationUnit(r).subscribe(added => {
+          console.log(added);
+          this.snackBar.open("Успешно додадовте образовна установа.", 'Close');
+        });
+      })
+    }
   }
 
 }
