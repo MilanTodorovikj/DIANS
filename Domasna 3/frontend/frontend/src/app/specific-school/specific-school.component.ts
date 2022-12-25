@@ -6,6 +6,7 @@ import {MapComponent} from "../map/map.component";
 import {MatDialog} from "@angular/material/dialog";
 import {CreateSchoolPopupComponent} from "../all-schools/create-school-popup/create-school-popup.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {AuthenticationService} from "../authentication.service";
 
 @Component({
   selector: 'app-specific-school',
@@ -19,7 +20,8 @@ export class SpecificSchoolComponent {
               private unitService: EducationUnitsService,
               private mapComponent: MapComponent,
               private dialog: MatDialog,
-              private snackBar: MatSnackBar) {
+              private snackBar: MatSnackBar,
+              private loginService:AuthenticationService) {
   }
 
 
@@ -28,7 +30,10 @@ export class SpecificSchoolComponent {
 
   item: any;
 
+  loggedIn=false;
+
   ngOnInit() {
+    this.loggedIn=this.loginService.isUserLoggedIn();
     this.route
       .params.subscribe(s => {
         // console.log(s["id"]);
@@ -61,24 +66,28 @@ export class SpecificSchoolComponent {
   }
 
   deleteSchool(id: number) {
-    this.unitService.deleteEducationUnit(id).subscribe(res => {
-      console.log(res);
-      this.goHome();
-    })
+    if (this.loginService.isUserLoggedIn()) {
+      this.unitService.deleteEducationUnit(id).subscribe(res => {
+        // console.log(res);
+        this.goHome();
+      })
+    }
   }
 
   editSchool(id: number) {
-    const dialogRef = this.dialog.open(CreateSchoolPopupComponent, {
-      data: this.item
-    });
-    dialogRef.afterClosed().subscribe(res => {
-      if (res !== undefined) {
-        this.unitService.editEducationUnit(res, id).subscribe(r => {
-          const nextUrl = "/detail/"+(++id);
-          window.location.assign(nextUrl);
-          this.snackBar.open("Ажурирањето е успешно направено", 'close');
-        })
-      }
-    })
+    if (this.loginService.isUserLoggedIn()) {
+      const dialogRef = this.dialog.open(CreateSchoolPopupComponent, {
+        data: this.item
+      });
+      dialogRef.afterClosed().subscribe(res => {
+        if (res !== undefined) {
+          this.unitService.editEducationUnit(res, id).subscribe(r => {
+            const nextUrl = "/detail/" + (++id);
+            window.location.assign(nextUrl);
+            this.snackBar.open("Ажурирањето е успешно направено", 'close');
+          })
+        }
+      })
+    }
   }
 }
