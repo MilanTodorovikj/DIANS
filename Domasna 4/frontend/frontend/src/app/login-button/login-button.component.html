@@ -1,0 +1,2 @@
+<a routerLink="/login" *ngIf="!loginService.isUserLoggedIn()" class="loginButton">Најави се</a>
+<a routerLink="/logout" *ngIf="loginService.isUserLoggedIn()" class="loginButton">Одјави се</a>

@@ -1,0 +1,52 @@
+
+app-search-bar {
+  position: absolute;
+  top: 25px;
+  z-index: 999;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 27.5rem;
+  height: 2rem;
+  max-width: calc(100% - 15rem);
+  min-width: 15rem;
+}
+
+app-all-schools {
+  position: absolute;
+  left: 60px;
+  z-index: 99999;
+}
+
+app-home-icon {
+  position: absolute;
+  top: 85%;
+  left: 90%;
+  z-index: 99999;
+}
+
+app-login-button{
+  position: absolute;
+  top: 48px;
+  left: 85%;
+  z-index: 99999;
+}
+
+
+.map-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 30px;
+}
+
+.map-frame {
+  border: 2px solid black;
+  height: 100%;
+}
+
+#map {
+  width: 100vw;
+  height: 100vh;
+}
