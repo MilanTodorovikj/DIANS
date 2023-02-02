@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {AuthenticationService} from "../authentication.service";
 
 @Component({
@@ -14,13 +14,14 @@ export class LoginComponent implements OnInit {
   invalidLogin = false
 
   constructor(private router: Router,
-              private loginservice: AuthenticationService) { }
+              private loginService: AuthenticationService) {
+  }
 
   ngOnInit() {
   }
 
   checkLogin() {
-    if (this.loginservice.authenticate(this.username, this.password)
+    if (this.loginService.authenticate(this.username, this.password)
     ) {
       this.router.navigate([''])
       this.invalidLogin = false

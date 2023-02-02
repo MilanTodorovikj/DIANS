@@ -9,7 +9,9 @@ import {ReloadService} from "../reload.service";
   templateUrl: './reviews.component.html',
   styleUrls: ['./reviews.component.css']
 })
+
 export class ReviewsComponent {
+
   id: number = 1;
   reviews: Review[] = [];
 
@@ -24,7 +26,6 @@ export class ReviewsComponent {
   ngOnInit() {
     this.route
       .params.subscribe(s => {
-        // console.log(s["id"]);
         this.id = s["id"];
       }
     )
@@ -32,10 +33,8 @@ export class ReviewsComponent {
     this.reviewService.getReviews(this.id).subscribe(
       (response) => {
         this.reviews = response;
-        // console.log(response);
       }
     )
   }
-
 
 }

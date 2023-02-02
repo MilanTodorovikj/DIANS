@@ -9,11 +9,13 @@ import {EducationUnit} from "../EducationUnit";
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent {
+
   results$!: Observable<EducationUnit[]>;
   private searchTerms = new Subject<string>();
   hide = true
 
-  constructor(private educationUnitsService: EducationUnitsService) {}
+  constructor(private educationUnitsService: EducationUnitsService) {
+  }
 
   search(term: string): void {
     this.searchTerms.next(term);

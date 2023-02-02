@@ -1,10 +1,10 @@
-.loginButton{
+.loginButton {
   display: inline-block;
-  width:85px;
+  width: 85px;
   height: 24px;
   background-color: darkblue;
   text-decoration: none;
-  color:white;
+  color: white;
   text-align: center;
   border-radius: 10px;
   font-weight: bold;

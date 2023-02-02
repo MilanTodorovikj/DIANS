@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 import {BsModalRef, BsModalService} from "ngx-bootstrap/modal";
 import {ModalContentComponent} from "../modal-content/modal-content.component";
 
@@ -11,14 +11,12 @@ import {ModalContentComponent} from "../modal-content/modal-content.component";
 })
 export class ReviewFormComponent {
 
-  constructor(private fb: FormBuilder,private modalService: BsModalService) {
+  modalRef?: BsModalRef;
 
+  constructor(private fb: FormBuilder, private modalService: BsModalService) {
   }
 
-
-  modalRef?: BsModalRef;
   openModal() {
     this.modalRef = this.modalService.show(ModalContentComponent);
-
   }
 }

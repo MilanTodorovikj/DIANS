@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {AuthenticationService} from "../authentication.service";
 
 @Component({
@@ -8,7 +8,7 @@ import {AuthenticationService} from "../authentication.service";
 })
 export class LoginButtonComponent {
 
-  constructor(public loginService:AuthenticationService) { }
-
+  constructor(public loginService: AuthenticationService) {
+  }
 
 }

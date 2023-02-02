@@ -1,26 +1,30 @@
-.container{
+.container {
   padding-left: 7vw;
 }
-.form{
-  margin:auto;
+
+.form {
+  margin: auto;
   width: 75vw;
   height: 75vh;
   background-color: #f3feff;
-  border-radius:50px;
+  border-radius: 50px;
   padding-top: 15%;
 }
-img{
+
+img {
   display: block;
-  margin:auto;
+  margin: auto;
 }
-.form-row{
+
+.form-row {
   text-align: center;
 }
-.example-full-width{
+
+.example-full-width {
   width: 35%;
 }
 
-.text-logo{
+.text-logo {
   text-align: center;
   font-size: 30px;
   color: #052f6e;

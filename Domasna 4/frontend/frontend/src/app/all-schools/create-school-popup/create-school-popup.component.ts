@@ -2,7 +2,6 @@ import {Component, Inject} from "@angular/core";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {EducationUnit} from "../../EducationUnit";
-import {AllSchoolsComponent} from "../all-schools.component";
 
 @Component({
   selector: 'create-school-popup',

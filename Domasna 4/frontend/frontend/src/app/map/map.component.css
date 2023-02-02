@@ -24,7 +24,7 @@ app-home-icon {
   z-index: 99999;
 }
 
-app-login-button{
+app-login-button {
   position: absolute;
   top: 48px;
   left: 85%;
