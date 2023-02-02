@@ -17,7 +17,7 @@ import {AuthenticationService} from "../authentication.service";
 export class AllSchoolsComponent implements OnInit {
   title = "GetEducationUnits";
   data = [];
-
+//
   educationUnitFilter = new EducationUnitFilter();
 
   cities = ['Велес', 'Демир Капија', 'Кавадарци', 'Неготино', 'Свети Николе',

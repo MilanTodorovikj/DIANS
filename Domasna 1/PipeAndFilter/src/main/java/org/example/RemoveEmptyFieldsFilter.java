@@ -16,7 +16,7 @@ public class RemoveEmptyFieldsFilter implements Filter<String>{
             }
             return rez;
         }
-
+//
         return "";
     }
 }
