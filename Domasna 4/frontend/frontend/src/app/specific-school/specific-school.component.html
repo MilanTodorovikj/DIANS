@@ -50,7 +50,8 @@
     </div>
 
     <div *ngIf="loggedIn">
-      <button mat-fab color="primary" style="width: 35px; height: 35px; margin-right: 10px" (click)="editSchool(item.id)">
+      <button mat-fab color="primary" style="width: 35px; height: 35px; margin-right: 10px"
+              (click)="editSchool(item.id)">
         <mat-icon>edit</mat-icon>
       </button>
       <button mat-fab color="warn" style="width: 35px; height: 35px" (click)="deleteSchool(item.id)">
@@ -67,8 +68,6 @@
     </h4>
     <app-reviews></app-reviews>
 
-
   </div>
-
 
 </div>

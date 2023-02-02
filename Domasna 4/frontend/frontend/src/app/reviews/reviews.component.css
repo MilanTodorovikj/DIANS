@@ -5,19 +5,18 @@ ul {
 
 li {
   list-style-type: none;
-
   position: relative;
   display: block;
   color: #212529;
   margin-bottom: 8px;
 }
 
-.visitor-name{
+.visitor-name {
   font-size: 1.1em;
   font-weight: bold;
   color: #2d7afa;
 }
 
-.comment{
+.comment {
   color: #2d7afa;
 }

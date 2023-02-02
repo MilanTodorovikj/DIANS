@@ -11,25 +11,22 @@ import {MapComponent} from './map/map.component';
 import {SearchBarComponent} from './search-bar/search-bar.component';
 import {AllSchoolsComponent} from './all-schools/all-schools.component';
 import {HttpClientModule} from '@angular/common/http';
-import { SpecificSchoolComponent } from './specific-school/specific-school.component';
-import { ReviewsComponent } from './reviews/reviews.component';
-import { HomeIconComponent } from './home-icon/home-icon.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import {SpecificSchoolComponent} from './specific-school/specific-school.component';
+import {ReviewsComponent} from './reviews/reviews.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 import {MatIconModule} from '@angular/material/icon'
-import {FormsModule,ReactiveFormsModule} from "@angular/forms";
-import { ReviewFormComponent } from './review-form/review-form.component';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ReviewFormComponent} from './review-form/review-form.component';
+import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import {AccordionModule} from "ngx-bootstrap/accordion";
-import { ModalContentComponent } from './modal-content/modal-content.component';
-import { ModalModule } from 'ngx-bootstrap/modal';
-
-import { WjInputModule } from '@grapecity/wijmo.angular2.input'
+import {ModalContentComponent} from './modal-content/modal-content.component';
+import {ModalModule} from 'ngx-bootstrap/modal';
 import {MatSelectModule} from "@angular/material/select";
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
-import { HeaderComponent } from './header/header.component';
-import { LoginButtonComponent } from './login-button/login-button.component';
+import {LoginComponent} from './login/login.component';
+import {LogoutComponent} from './logout/logout.component';
+import {HeaderComponent} from './header/header.component';
+import {LoginButtonComponent} from './login-button/login-button.component';
 import {MatInputModule} from "@angular/material/input";
 import {CreateSchoolPopupComponent} from "./all-schools/create-school-popup/create-school-popup.component";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
@@ -43,9 +40,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     AllSchoolsComponent,
     SpecificSchoolComponent,
     ReviewsComponent,
-    HomeIconComponent,
     CreateSchoolPopupComponent,
-    HomeIconComponent,
     ReviewFormComponent,
     ModalContentComponent,
     LoginComponent,

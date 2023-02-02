@@ -18,9 +18,14 @@ export class EducationUnitsService {
   urlAdd: string = "http://localhost:8080/educationUnit/addNew";
   urlDelete: string = "http://localhost:8080/educationUnit/delete/";
   urlEdit: string = "http://localhost:8080/educationUnit/edit/";
+  urlAddReview: string = "http://localhost:8080/review/addReview/";
 
   addEducationUnit(unit: EducationUnit) {
     return this.http.post(this.urlAdd, unit);
+  }
+
+  addReview(id: number, formData: any) {
+    return this.http.post(this.urlAddReview + id, formData);
   }
 
   deleteEducationUnit(id: number) {

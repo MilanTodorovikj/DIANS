@@ -9,26 +9,17 @@
 }
 
 
-/* - - - - - RATINGS */
 .rating {
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0; */
   width: 11.5rem;
   height: 2.75rem;
   padding: 5px 10px;
-  /* margin: auto; */
   border-radius: 30px;
   background: #FFF;
   display: block;
   overflow: hidden;
-
   box-shadow: 0 1px #CCC,
   0 5px #DDD,
   0 7px 6px -3px #999;
-
   unicode-bidi: bidi-override;
   direction: rtl;
 }
@@ -37,7 +28,6 @@
   display: none;
 }
 
-/* - - - - - RATE */
 #rate {
   top: -65px;
 }
@@ -48,7 +38,6 @@
   width: 2rem;
   height: 2rem;
   display: block;
-
   color: rgba(0, 135, 211, .4);
   line-height: 33px;
   text-align: center;
@@ -72,7 +61,6 @@
   color: rgb(0, 135, 211);
 }
 
-/* - - - - - LIKE */
 #like {
   bottom: -65px;
 }
@@ -83,7 +71,6 @@
   width: 30px;
   height: 30px;
   display: block;
-
   color: rgba(233, 54, 40, .4);
   line-height: 33px;
   text-align: center;

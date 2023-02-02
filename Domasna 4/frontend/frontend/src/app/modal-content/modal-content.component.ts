@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {BsModalRef} from "ngx-bootstrap/modal";
 import {EducationUnitsService} from "../educationUnits.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {ReloadService} from "../reload.service";
 
 @Component({
@@ -13,6 +13,9 @@ import {ReloadService} from "../reload.service";
 })
 export class ModalContentComponent implements OnInit {
 
+  item: any;
+  id: number = 1;
+  form: FormGroup;
 
   constructor(public modalRef: BsModalRef,
               private unitService: EducationUnitsService,
@@ -30,18 +33,10 @@ export class ModalContentComponent implements OnInit {
   }
 
 
-  item: any;
-  a: number = 1;
-  form: FormGroup;
-  formComment: any;
-
   ngOnInit() {
+    this.id = Number(this.route.url.split("/")[2]);
 
-    // console.log(this.route.url.split("/")[2]);
-
-    this.a = Number(this.route.url.split("/")[2]);
-
-    this.unitService.getEducationUnit(this.a).subscribe(
+    this.unitService.getEducationUnit(this.id).subscribe(
       (response) => {
         this.item = response;
       }
@@ -51,20 +46,12 @@ export class ModalContentComponent implements OnInit {
   addReview() {
 
     if (this.form.valid) {
-
       const formData = this.form.value;
-      this.http.post('http://localhost:8080/review/addReview/' + this.a, formData).subscribe(response => {
-
-        // window.location.reload();
+      this.unitService.addReview(this.id, formData).subscribe(response => {
         this.reloadService.reload();
-
       });
 
-
-    } else {
-      console.log("Greska vo forma");
     }
-
   }
 
 

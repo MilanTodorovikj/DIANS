@@ -5,7 +5,6 @@ import {MapComponent} from "../map/map.component";
 import {EducationUnitFilter} from "../EducationUnitFilter";
 import {MatDialog} from "@angular/material/dialog";
 import {CreateSchoolPopupComponent} from "./create-school-popup/create-school-popup.component";
-import {lastValueFrom} from "rxjs";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {AuthenticationService} from "../authentication.service";
 
@@ -57,9 +56,10 @@ export class AllSchoolsComponent implements OnInit {
 
   modal: any;
 
-  loggedIn=false;
+  loggedIn = false;
+
   ngOnInit(): void {
-    this.loggedIn=this.loginService.isUserLoggedIn()
+    this.loggedIn = this.loginService.isUserLoggedIn()
     this.educationUnitsService.getEducationUnits().subscribe(
       (response) => {
         this.units = response;
@@ -70,7 +70,7 @@ export class AllSchoolsComponent implements OnInit {
         console.log("Error Occurred: " + JSON.stringify(error));
       }
     )
-    this.mapComponent.ngAfterViewInit(10 as number, this.educationUnitFilter,false);
+    this.mapComponent.ngAfterViewInit(10 as number, this.educationUnitFilter, false);
   }
 
   showMore() {
@@ -79,17 +79,15 @@ export class AllSchoolsComponent implements OnInit {
       newLength = this.units.length
     }
     this.displayData = this.units.slice(0, newLength);
-    this.mapComponent.ngAfterViewInit(newLength as number, this.educationUnitFilter,true);
+    this.mapComponent.ngAfterViewInit(newLength as number, this.educationUnitFilter, true);
   }
 
   onCityChange(e: string) {
     this.educationUnitFilter.city = e;
-    //console.log(this.educationUnitFilter);
 
     this.educationUnitsService.getEducationUnisFiltered(this.educationUnitFilter).subscribe(
       (response) => {
         this.units = response;
-        // console.log(response);
         this.displayData = this.units.slice(0, 10);
         this.modal = this.displayData.at(0);
       },
@@ -103,13 +101,12 @@ export class AllSchoolsComponent implements OnInit {
       length = this.units.length
     }
     this.displayData = this.units.slice(0, length);
-    this.mapComponent.ngAfterViewInit(length as number, this.educationUnitFilter,false);
+    this.mapComponent.ngAfterViewInit(length as number, this.educationUnitFilter, false);
 
   }
 
   onTypeChange(e: string) {
     this.educationUnitFilter.type = e;
-    //console.log(this.educationUnitFilter);
 
     this.educationUnitsService.getEducationUnisFiltered(this.educationUnitFilter).subscribe(
       (response) => {
@@ -127,16 +124,15 @@ export class AllSchoolsComponent implements OnInit {
       length = this.units.length
     }
     this.displayData = this.units.slice(0, length);
-    this.mapComponent.ngAfterViewInit(length as number, this.educationUnitFilter,false);
+    this.mapComponent.ngAfterViewInit(length as number, this.educationUnitFilter, false);
   }
 
   onSortChange() {
-    if (this.educationUnitFilter.sort == true)
+    if (this.educationUnitFilter.sort)
       this.educationUnitFilter.sort = false;
     else
       this.educationUnitFilter.sort = true;
 
-    //console.log(this.educationUnitFilter)
 
     this.educationUnitsService.getEducationUnisFiltered(this.educationUnitFilter).subscribe(
       (response) => {
@@ -154,16 +150,15 @@ export class AllSchoolsComponent implements OnInit {
       length = this.units.length
     }
     this.displayData = this.units.slice(0, length);
-    this.mapComponent.ngAfterViewInit(length as number, this.educationUnitFilter,false);
+    this.mapComponent.ngAfterViewInit(length as number, this.educationUnitFilter, false);
   }
 
   addUnit() {
-    if(this.loginService.isUserLoggedIn()) {
+    if (this.loginService.isUserLoggedIn()) {
       let dialogRef = this.dialog.open(CreateSchoolPopupComponent, {}).afterClosed();
 
       dialogRef.subscribe(r => {
         this.educationUnitsService.addEducationUnit(r).subscribe(added => {
-          console.log(added);
           this.snackBar.open("Успешно додадовте образовна установа.", 'Close');
         });
       })
