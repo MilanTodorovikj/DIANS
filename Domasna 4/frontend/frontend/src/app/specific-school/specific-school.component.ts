@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {EducationUnitsService} from "../educationUnits.service";
-import * as Leaflet from "leaflet";
 import {MapComponent} from "../map/map.component";
 import {MatDialog} from "@angular/material/dialog";
 import {CreateSchoolPopupComponent} from "../all-schools/create-school-popup/create-school-popup.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {AuthenticationService} from "../authentication.service";
+import {ReloadService} from "../reload.service";
 
 @Component({
   selector: 'app-specific-school',
@@ -21,11 +21,15 @@ export class SpecificSchoolComponent {
               private mapComponent: MapComponent,
               private dialog: MatDialog,
               private snackBar: MatSnackBar,
-              private loginService:AuthenticationService) {
+              private loginService:AuthenticationService,
+              private reloadService: ReloadService) {
+    this.reloadService.reload$.subscribe(() => {
+      this.ngOnInit()
+    });
   }
 
 
-  a: number = 1;
+  id: number = 1;
   numbers = [1, 2, 3, 4, 5]
 
   item: any;
@@ -36,29 +40,21 @@ export class SpecificSchoolComponent {
     this.loggedIn=this.loginService.isUserLoggedIn();
     this.route
       .params.subscribe(s => {
-        // console.log(s["id"]);
-        this.a = s["id"];
-        // console.log(this.route.snapshot);
+        this.id = s["id"];
       }
     )
 
-    this.unitService.getEducationUnit(this.a).subscribe(
+    this.unitService.getEducationUnit(this.id).subscribe(
       (response) => {
-        // console.log(response)
         this.item = response;
 
         this.mapComponent.setNewMarker(this.item.lat, this.item.lon);
-
-        // // @ts-ignore
-        // for(let i=1;i<=response.reviewAverage;i++){
-        //   this.numbers.push(i);
-        // }
       }
     )
   }
 
   ngOnDestroy() {
-    // this.sub.unsubscribe();
+
   }
 
   goHome() {
@@ -68,7 +64,6 @@ export class SpecificSchoolComponent {
   deleteSchool(id: number) {
     if (this.loginService.isUserLoggedIn()) {
       this.unitService.deleteEducationUnit(id).subscribe(res => {
-        // console.log(res);
         this.goHome();
       })
     }

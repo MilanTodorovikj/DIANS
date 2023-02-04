@@ -1,13 +1,14 @@
 <div class="search">
   <input #searchBox id="search-box" type="text"
          placeholder="Пребарај овде..." name="search" autocomplete="off"
+         (focusout)="onFocusOut()"
          (input)="search(searchBox.value)"/>
   <i class="fa fa-search"></i>
 </div>
 <div>
   <ul class="search-result-list" [hidden]="hide">
     <li *ngFor="let result of results$ | async" class="search-result">
-      <a routerLink="/detail/{{result.id}}" class="search-result-link">
+      <a routerLink="/detail/{{result.id}}" class="search-result-link" (click)="clearSearchBox()">
         {{result.name}}, {{result.city}}
       </a>
     </li>

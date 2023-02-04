@@ -8,5 +8,5 @@ export interface EducationUnit {
   website?: string;
   lat: number;
   lon: number;
-  reviewAverage?:number;
+  reviewAverage?: number;
 }

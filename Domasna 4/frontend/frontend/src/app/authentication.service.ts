@@ -1,13 +1,14 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  constructor() { }
+  constructor() {
+  }
 
-  authenticate(username:string, password:string) {
+  authenticate(username: string, password: string) {
     if (username === "education" && password === "education") {
       sessionStorage.setItem('username', username)
       return true;

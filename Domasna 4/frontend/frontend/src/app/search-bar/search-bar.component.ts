@@ -30,4 +30,13 @@ export class SearchBarComponent {
     );
   }
 
+  clearSearchBox() {
+    this.search("");
+  }
+
+  onFocusOut() {
+    setTimeout( ()=> {
+      this.hide = true;
+    }, 200);
+  }
 }

@@ -8,9 +8,9 @@ import {LogoutComponent} from "./logout/logout.component";
 const routes: Routes = [
   {path: 'all', component: AllSchoolsComponent},
   {path: 'detail/:id', component: SpecificSchoolComponent},
-  { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent },
-  { path: '**', redirectTo: 'all', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
+  {path: 'logout', component: LogoutComponent},
+  {path: '**', redirectTo: 'all', pathMatch: 'full'},
   {path: '', redirectTo: 'all', pathMatch: 'full'},
 ];
 

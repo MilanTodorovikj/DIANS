@@ -8,7 +8,6 @@ export class Review {
   date: Date;
   visitor: Visitor;
 
-
   constructor(id: number, grade: number, comment: string, date: Date, visitor: Visitor) {
 
     this.id = id;

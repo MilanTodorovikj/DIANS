@@ -1,6 +1,4 @@
 @import '@grapecity/wijmo.styles/wijmo.css';
-
-
 @import '~bootstrap/dist/css/bootstrap.css';
 
 * {
@@ -15,8 +13,6 @@ body {
   scroll-behavior: smooth;
 }
 
-
-
 router-outlet + * {
   position: absolute;
   top: 30px;
@@ -28,17 +24,14 @@ router-outlet + * {
 }
 
 @media only screen and (max-width: 1260px) {
-  router-outlet + app-all-schools  {
+  router-outlet + app-all-schools {
     top: 5rem;
     left: 50%;
     transform: translateX(-50%);
   }
-
 }
 
-
 @media only screen and (max-width: 1000px) {
-
   router-outlet + app-specific-school {
     top: 5rem;
     left: 50%;
@@ -50,9 +43,19 @@ router-outlet + * {
   margin: 1.25rem auto 1.5rem auto;
 }
 
-.sorting .mat-mdc-form-field-subscript-wrapper{
+.sorting .mat-mdc-form-field-subscript-wrapper {
   display: none;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
+  top: 2rem;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
