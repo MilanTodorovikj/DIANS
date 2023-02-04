@@ -38,7 +38,7 @@ export class MapComponent implements AfterViewInit {
 
     this.map.addLayer(layer);
     this.unitService.getEducationUnisFiltered(_filter).subscribe(
-      (response) => {
+      response => {
         this.items = response;
         this.displayData = this.items.slice(0, length);
         for (let i = 0; i < length; i++) {
@@ -55,8 +55,8 @@ export class MapComponent implements AfterViewInit {
 
         }
       },
-      (error) => {
-        console.log("Error Occurred: " + error);
+      error => {
+        console.log("Error Occurred: " + JSON.stringify(error));
       }
     )
 

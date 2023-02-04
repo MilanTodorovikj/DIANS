@@ -10,8 +10,8 @@ import {EducationUnit} from "../EducationUnit";
 })
 export class SearchBarComponent {
 
-  results$!: Observable<EducationUnit[]>;
-  private searchTerms = new Subject<string>();
+  results$: Observable<EducationUnit[]> | undefined;
+  searchTerms = new Subject<string>();
   hide = true
 
   constructor(private educationUnitsService: EducationUnitsService) {

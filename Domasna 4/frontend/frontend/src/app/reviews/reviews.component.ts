@@ -12,29 +12,18 @@ import {ReloadService} from "../reload.service";
 
 export class ReviewsComponent {
 
-  id: number = 1;
+  id = 1;
   reviews: Review[] = [];
 
   constructor(private route: ActivatedRoute,
               private reviewService: ReviewsService,
               private reloadService: ReloadService) {
-    this.reloadService.reload$.subscribe(() => {
-      this.ngOnInit()
-    });
+    this.reloadService.reload$.subscribe(() => {this.ngOnInit()});
   }
 
   ngOnInit() {
-    this.route
-      .params.subscribe(s => {
-        this.id = s["id"];
-      }
-    )
-
-    this.reviewService.getReviews(this.id).subscribe(
-      (response) => {
-        this.reviews = response;
-      }
-    )
+    this.route.params.subscribe(params => {this.id = params["id"];})
+    this.reviewService.getReviews(this.id).subscribe(response => this.reviews = response)
   }
 
 }

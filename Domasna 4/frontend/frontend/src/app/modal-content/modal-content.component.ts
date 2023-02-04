@@ -15,7 +15,7 @@ import {ReviewsService} from "../reviews.service";
 export class ModalContentComponent implements OnInit {
 
   item: any;
-  id: number = 1;
+  id = 1;
   form: FormGroup;
 
   constructor(public modalRef: BsModalRef,

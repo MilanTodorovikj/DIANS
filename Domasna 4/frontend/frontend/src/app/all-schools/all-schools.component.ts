@@ -61,12 +61,12 @@ export class AllSchoolsComponent implements OnInit {
   ngOnInit(): void {
     this.loggedIn = this.loginService.isUserLoggedIn()
     this.educationUnitsService.getEducationUnits().subscribe(
-      (response) => {
+      response => {
         this.units = response;
         this.displayData = this.units.slice(0, 10);
         this.modal = this.displayData.at(0);
       },
-      (error) => {
+      error => {
         console.log("Error Occurred: " + JSON.stringify(error));
       }
     )
@@ -86,13 +86,13 @@ export class AllSchoolsComponent implements OnInit {
     this.educationUnitFilter.city = e;
 
     this.educationUnitsService.getEducationUnisFiltered(this.educationUnitFilter).subscribe(
-      (response) => {
+      response => {
         this.units = response;
         this.displayData = this.units.slice(0, 10);
         this.modal = this.displayData.at(0);
       },
-      (error) => {
-        console.log("Error Occurred: " + error);
+      error => {
+        console.log("Error Occurred: " + JSON.stringify(error));
       }
     )
 
@@ -109,13 +109,13 @@ export class AllSchoolsComponent implements OnInit {
     this.educationUnitFilter.type = e;
 
     this.educationUnitsService.getEducationUnisFiltered(this.educationUnitFilter).subscribe(
-      (response) => {
+      response => {
         this.units = response;
         this.displayData = this.units.slice(0, 10);
         this.modal = this.displayData.at(0);
       },
-      (error) => {
-        console.log("Error Occurred: " + error);
+      error => {
+        console.log("Error Occurred: " + JSON.stringify(error));
       }
     )
 
@@ -135,12 +135,12 @@ export class AllSchoolsComponent implements OnInit {
 
 
     this.educationUnitsService.getEducationUnisFiltered(this.educationUnitFilter).subscribe(
-      (response) => {
+      response => {
         this.units = response;
         this.displayData = this.units.slice(0, 10);
         this.modal = this.displayData.at(0);
       },
-      (error) => {
+      error => {
         console.log("Error Occurred: " + JSON.stringify(error));
       }
     )
@@ -157,8 +157,8 @@ export class AllSchoolsComponent implements OnInit {
     if (this.loginService.isUserLoggedIn()) {
       let dialogRef = this.dialog.open(CreateSchoolPopupComponent, {}).afterClosed();
 
-      dialogRef.subscribe(r => {
-        this.educationUnitsService.addEducationUnit(r).subscribe(added => {
+      dialogRef.subscribe(response => {
+        this.educationUnitsService.addEducationUnit(response).subscribe(added => {
           this.snackBar.open("Успешно додадовте образовна установа.", 'Close');
         });
       })
