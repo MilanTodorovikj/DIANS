@@ -6,6 +6,9 @@ import ukim.finki.dians.backend.model.EducationUnit;
 import ukim.finki.dians.backend.model.Review;
 import ukim.finki.dians.backend.model.exceptions.EducationUnitNotFound;
 import ukim.finki.dians.backend.model.filter.EducationUnitFilter;
+import ukim.finki.dians.backend.model.filter.educationUnitFilterStrategy.EducationUnitFilterAscending;
+import ukim.finki.dians.backend.model.filter.educationUnitFilterStrategy.EducationUnitFilterDescending;
+import ukim.finki.dians.backend.model.filter.educationUnitFilterStrategy.EducationUnitFilterStrategy;
 import ukim.finki.dians.backend.model.helper.helperFront.EducationUnitForListHelperFront;
 import ukim.finki.dians.backend.model.helper.helperFront.SpecificEducationUnitHelperFront;
 import ukim.finki.dians.backend.repository.EducationUnitRepository;
@@ -81,11 +84,16 @@ public class EducationUnitServiceImpl implements EducationUnitService {
     @Override
     public List<SpecificEducationUnitHelperFront> filter(String city, String type, Boolean sort) {
         EducationUnitFilter educationUnitFilter = new EducationUnitFilter(city, type, sort);
-
+        //Strategy Design Pattern for filtering all EducationUnits
+        EducationUnitFilterStrategy educationUnitFilterStrategy;
+        //If sort in the filter is true get all EducationUnits in ascending order
+        //if not then get them in descending order
         if (educationUnitFilter.getSort())
-            return this.educationUnitRepository.filter(educationUnitFilter).stream().map(EducationUnit::getAsSpecificEducationUnitHelperFront).sorted(Comparator.comparing(SpecificEducationUnitHelperFront::getReviewAverage).reversed()).toList();
+            educationUnitFilterStrategy = new EducationUnitFilterAscending(this.educationUnitRepository);
         else
-            return this.educationUnitRepository.filter(educationUnitFilter).stream().map(EducationUnit::getAsSpecificEducationUnitHelperFront).sorted(Comparator.comparing(SpecificEducationUnitHelperFront::getReviewAverage)).toList();
+            educationUnitFilterStrategy = new EducationUnitFilterDescending(this.educationUnitRepository);
+
+        return educationUnitFilterStrategy.filter(educationUnitFilter);
     }
 
     @Override
