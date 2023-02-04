@@ -29,7 +29,7 @@ import {HeaderComponent} from './header/header.component';
 import {LoginButtonComponent} from './login-button/login-button.component';
 import {MatInputModule} from "@angular/material/input";
 import {CreateSchoolPopupComponent} from "./all-schools/create-school-popup/create-school-popup.component";
-import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {MatDialogModule} from "@angular/material/dialog";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({

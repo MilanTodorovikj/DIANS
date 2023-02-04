@@ -7,12 +7,16 @@ import {Review} from "./Review";
 })
 export class ReviewsService {
 
-  url: string = "http://localhost:8080/review/findAll/";
+  url: string = "http://localhost:8080/review";
 
   constructor(private http: HttpClient) {
   }
 
   getReviews(id: number) {
-    return this.http.get<Review[]>(this.url + id);
+    return this.http.get<Review[]>(`${this.url}/findAll/${id}`);
+  }
+
+  addReview(id: number, formData: any) {
+    return this.http.post(`${this.url}/addReview/${id}`, formData);
   }
 }

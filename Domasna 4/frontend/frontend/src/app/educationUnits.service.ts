@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http'
+import {HttpClient, HttpParams} from '@angular/common/http'
 import {EducationUnit} from "./EducationUnit";
 import {Observable, of} from "rxjs";
 import {EducationUnitFilter} from "./EducationUnitFilter";
@@ -12,43 +12,33 @@ export class EducationUnitsService {
   constructor(private http: HttpClient) {
   }
 
-  urlAll: string = "http://localhost:8080/educationUnit/all";
-  urlSpecific: string = "http://localhost:8080/educationUnit/";
-  urlFiltered: string = "http://localhost:8080/educationUnit/filter";
-  urlAdd: string = "http://localhost:8080/educationUnit/addNew";
-  urlDelete: string = "http://localhost:8080/educationUnit/delete/";
-  urlEdit: string = "http://localhost:8080/educationUnit/edit/";
-  urlAddReview: string = "http://localhost:8080/review/addReview/";
+  url: string = "http://localhost:8080/educationUnit";
 
   addEducationUnit(unit: EducationUnit) {
-    return this.http.post(this.urlAdd, unit);
-  }
-
-  addReview(id: number, formData: any) {
-    return this.http.post(this.urlAddReview + id, formData);
+    return this.http.post(`${this.url}/addNew`, unit);
   }
 
   deleteEducationUnit(id: number) {
-    return this.http.delete(this.urlDelete + id);
+    return this.http.delete(`${this.url}/delete/${id}`);
   }
 
   editEducationUnit(unit: EducationUnit, id: number) {
-    return this.http.put(this.urlEdit + id, unit);
+    return this.http.put(`${this.url}/edit/${id}`, unit);
   }
 
   getEducationUnits() {
-    return this.http.get<EducationUnit[]>(this.urlAll);
+    return this.http.get<EducationUnit[]>(`${this.url}/all`);
   }
 
   getEducationUnit(id: number) {
-    return this.http.get<EducationUnit>(this.urlSpecific + id);
+    return this.http.get<EducationUnit>(`${this.url}/${id}`);
   }
 
   searchUnits(term: string): Observable<EducationUnit[]> {
     if (!term.trim()) {
       return of([]);
     }
-    return this.http.get<EducationUnit[]>(`${this.urlSpecific}search?term=${term}`);
+    return this.http.get<EducationUnit[]>(`${this.url}/search?term=${term}`);
   }
 
   getEducationUnisFiltered(educationUnitFilter: EducationUnitFilter): Observable<EducationUnit[]> {
@@ -57,7 +47,7 @@ export class EducationUnitsService {
     queryParams = queryParams.append("type", educationUnitFilter.type);
     queryParams = queryParams.append("sort", educationUnitFilter.sort);
 
-    return this.http.get<EducationUnit[]>(this.urlFiltered, {params: queryParams});
+    return this.http.get<EducationUnit[]>(`${this.url}/filter`, {params: queryParams});
   }
 
 }
