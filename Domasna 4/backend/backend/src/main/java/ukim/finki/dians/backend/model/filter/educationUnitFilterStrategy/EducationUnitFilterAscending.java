@@ -1,6 +1,5 @@
 package ukim.finki.dians.backend.model.filter.educationUnitFilterStrategy;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ukim.finki.dians.backend.model.EducationUnit;
 import ukim.finki.dians.backend.model.filter.EducationUnitFilter;
