@@ -27,4 +27,6 @@ public interface EducationUnitService {
     EducationUnit findById(Long id);
 
     List<EducationUnit> search(String term);
+
+    List<String> getAllCities();
 }

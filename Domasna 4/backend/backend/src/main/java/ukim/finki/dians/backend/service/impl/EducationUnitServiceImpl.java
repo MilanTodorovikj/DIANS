@@ -15,6 +15,8 @@ import ukim.finki.dians.backend.repository.EducationUnitRepository;
 import ukim.finki.dians.backend.service.EducationUnitService;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class EducationUnitServiceImpl implements EducationUnitService {
@@ -103,6 +105,13 @@ public class EducationUnitServiceImpl implements EducationUnitService {
     @Override
     public List<EducationUnit> search(String term) {
         return this.educationUnitRepository.findAllByNameContainingIgnoreCase(term);
+    }
+
+    @Override
+    public List<String> getAllCities() {
+        Set<String> cities = this.educationUnitRepository.findAll().stream().map(EducationUnit::getCity).collect(Collectors.toSet());
+        cities.remove("");
+        return cities.stream().toList();
     }
 
 
