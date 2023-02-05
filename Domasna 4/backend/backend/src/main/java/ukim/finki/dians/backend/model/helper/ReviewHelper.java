@@ -1,10 +1,8 @@
 package ukim.finki.dians.backend.model.helper;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Data
 @Component

@@ -34,8 +34,6 @@ public class ReviewController {
         Visitor visitor = new Visitor(reviewHelper.getName(), reviewHelper.getEmail());
         Review review = new Review( reviewHelper.getRate(), reviewHelper.getComment(), visitor);
 
-        System.out.println("Uspesno kreiran Review = " + review);
-
         return this.reviewService.save(review, id);
     }
 }

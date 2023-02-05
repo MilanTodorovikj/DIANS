@@ -14,7 +14,6 @@ import ukim.finki.dians.backend.model.helper.helperFront.SpecificEducationUnitHe
 import ukim.finki.dians.backend.repository.EducationUnitRepository;
 import ukim.finki.dians.backend.service.EducationUnitService;
 
-import java.util.Comparator;
 import java.util.List;
 
 @Service
