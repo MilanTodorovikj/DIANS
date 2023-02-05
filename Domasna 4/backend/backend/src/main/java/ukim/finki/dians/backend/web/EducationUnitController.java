@@ -65,4 +65,9 @@ public class EducationUnitController {
         return this.educationUnitService.search(term);
     }
 
+    @GetMapping(path = "/cities")
+    public List<String> getAllCities(){
+        return this.educationUnitService.getAllCities();
+    }
+
 }
