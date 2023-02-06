@@ -19,12 +19,7 @@ export class AllSchoolsComponent implements OnInit {
 
   educationUnitFilter = new EducationUnitFilter();
 
-  cities = ['Велес', 'Демир Капија', 'Кавадарци', 'Неготино', 'Свети Николе',
-    'Берово', 'Виница', 'Делчево', 'Кочани', 'Македонска Каменица',
-    'Пехчево', 'Пробиштип', 'Штип', 'Дебар', 'Кичево', 'Македонски Брод',
-    'Охрид', 'Струга', 'Богданци', 'Валандово', 'Гевгелија', 'Радовиш',
-    'Струмица', 'Битола', 'Демир Хисар', 'Крушево', 'Прилеп', 'Ресен',
-    'Гостивар', 'Тетово', 'Кратово', 'Крива Паланка', 'Куманово', 'Скопје'];
+  cities: string[] | undefined;
 
   types = [
     ['school', 'Училиште'],
@@ -65,6 +60,14 @@ export class AllSchoolsComponent implements OnInit {
         this.units = response;
         this.displayData = this.units.slice(0, 10);
         this.modal = this.displayData.at(0);
+      },
+      (error) => {
+        console.log("Error Occurred: " + JSON.stringify(error));
+      }
+    )
+    this.educationUnitsService.getAllCities().subscribe(
+      (response) => {
+        this.cities = response;
       },
       (error) => {
         console.log("Error Occurred: " + JSON.stringify(error));

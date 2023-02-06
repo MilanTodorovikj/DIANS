@@ -2,6 +2,7 @@ import {Component, Inject} from "@angular/core";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {EducationUnit} from "../../EducationUnit";
+import {EducationUnitsService} from "../../educationUnits.service";
 
 @Component({
   selector: 'create-school-popup',
@@ -10,18 +11,14 @@ import {EducationUnit} from "../../EducationUnit";
 })
 export class CreateSchoolPopupComponent {
   constructor(private fb: FormBuilder,
-              @Inject(MAT_DIALOG_DATA) public data: EducationUnit) {
+              @Inject(MAT_DIALOG_DATA) public data: EducationUnit,
+              private educationUnitsService: EducationUnitsService) {
     if (data !== undefined && data !== null) {
       this.schoolForm.reset(data)
     }
   }
 
-  cities = ['Велес', 'Демир Капија', 'Кавадарци', 'Неготино', 'Свети Николе',
-    'Берово', 'Виница', 'Делчево', 'Кочани', 'Македонска Каменица',
-    'Пехчево', 'Пробиштип', 'Штип', 'Дебар', 'Кичево', 'Македонски Брод',
-    'Охрид', 'Струга', 'Богданци', 'Валандово', 'Гевгелија', 'Радовиш',
-    'Струмица', 'Битола', 'Демир Хисар', 'Крушево', 'Прилеп', 'Ресен',
-    'Гостивар', 'Тетово', 'Кратово', 'Крива Паланка', 'Куманово', 'Скопје'];
+  cities: string[] | undefined;
 
   types = [
     ['school', 'Училиште'],
@@ -45,4 +42,15 @@ export class CreateSchoolPopupComponent {
       lon: [NaN]
     }
   );
+
+  ngOnInit(): void {
+    this.educationUnitsService.getAllCities().subscribe(
+      (response) => {
+        this.cities = response;
+      },
+      (error) => {
+        console.log("Error Occurred: " + JSON.stringify(error));
+      }
+    )
+  }
 }

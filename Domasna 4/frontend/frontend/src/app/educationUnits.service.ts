@@ -19,6 +19,7 @@ export class EducationUnitsService {
   urlDelete: string = "http://localhost:8080/educationUnit/delete/";
   urlEdit: string = "http://localhost:8080/educationUnit/edit/";
   urlAddReview: string = "http://localhost:8080/review/addReview/";
+  urlAllCities: string = "http://localhost:8080/educationUnit/cities";
 
   addEducationUnit(unit: EducationUnit) {
     return this.http.post(this.urlAdd, unit);
@@ -58,6 +59,10 @@ export class EducationUnitsService {
     queryParams = queryParams.append("sort", educationUnitFilter.sort);
 
     return this.http.get<EducationUnit[]>(this.urlFiltered, {params: queryParams});
+  }
+
+  getAllCities(){
+    return this.http.get<string[]>(this.urlAllCities);
   }
 
 }
