@@ -85,9 +85,7 @@ export class AllSchoolsComponent implements OnInit {
     this.mapComponent.ngAfterViewInit(newLength as number, this.educationUnitFilter, true);
   }
 
-  onCityChange(e: string) {
-    this.educationUnitFilter.city = e;
-
+  filter(){
     this.educationUnitsService.getEducationUnisFiltered(this.educationUnitFilter).subscribe(
       (response) => {
         this.units = response;
@@ -105,55 +103,24 @@ export class AllSchoolsComponent implements OnInit {
     }
     this.displayData = this.units.slice(0, length);
     this.mapComponent.ngAfterViewInit(length as number, this.educationUnitFilter, false);
+  }
 
+  onCityChange(e: string) {
+    this.educationUnitFilter.city = e;
+
+    this.filter();
   }
 
   onTypeChange(e: string) {
     this.educationUnitFilter.type = e;
 
-    this.educationUnitsService.getEducationUnisFiltered(this.educationUnitFilter).subscribe(
-      (response) => {
-        this.units = response;
-        this.displayData = this.units.slice(0, 10);
-        this.modal = this.displayData.at(0);
-      },
-      (error) => {
-        console.log("Error Occurred: " + error);
-      }
-    )
-
-    let length = this.displayData.length;
-    if (length > this.units.length) {
-      length = this.units.length
-    }
-    this.displayData = this.units.slice(0, length);
-    this.mapComponent.ngAfterViewInit(length as number, this.educationUnitFilter, false);
+    this.filter();
   }
 
   onSortChange() {
-    if (this.educationUnitFilter.sort)
-      this.educationUnitFilter.sort = false;
-    else
-      this.educationUnitFilter.sort = true;
+    this.educationUnitFilter.sort = !this.educationUnitFilter.sort;
 
-
-    this.educationUnitsService.getEducationUnisFiltered(this.educationUnitFilter).subscribe(
-      (response) => {
-        this.units = response;
-        this.displayData = this.units.slice(0, 10);
-        this.modal = this.displayData.at(0);
-      },
-      (error) => {
-        console.log("Error Occurred: " + JSON.stringify(error));
-      }
-    )
-
-    let length = this.displayData.length;
-    if (length > this.units.length) {
-      length = this.units.length
-    }
-    this.displayData = this.units.slice(0, length);
-    this.mapComponent.ngAfterViewInit(length as number, this.educationUnitFilter, false);
+    this.filter();
   }
 
   addUnit() {
