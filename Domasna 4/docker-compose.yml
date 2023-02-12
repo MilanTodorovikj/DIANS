@@ -1,0 +1,36 @@
+version: '3'
+services:
+
+  edu-unit-postgres:
+    image: "postgres:9.6-alpine"
+    container_name: edu-unit-postgres
+    volumes:
+      - edu-unit-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB:education
+      - POSTGRES_USER:postgres
+      - POSTGRES_PASSWORD:postgres
+
+  edu-unit-app:
+    build: ./backend/backend
+    container_name: edu-unit-app
+    environment:
+      - DB_SERVER=edu-unit-postgres
+    ports:
+      - 8080:8080
+    links:
+      - edu-unit-postgres
+
+  edu-unit-ui:
+    build: ./frontend/frontend
+    container_name: edu-unit-ui
+    ports:
+      - 4200:80
+    links:
+      - edu-unit-app
+
+
+volumes:
+  edu-unit-data:
