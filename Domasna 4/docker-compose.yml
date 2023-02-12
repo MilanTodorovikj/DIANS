@@ -9,15 +9,15 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_DB:education
-      - POSTGRES_USER:postgres
-      - POSTGRES_PASSWORD:postgres
+      POSTGRES_DB: education
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
 
   edu-unit-app:
     build: ./backend/backend
     container_name: edu-unit-app
     environment:
-      - DB_SERVER=edu-unit-postgres
+      DB_SERVER: edu-unit-postgres
     ports:
       - 8080:8080
     links:
